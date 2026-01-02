@@ -34,3 +34,42 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+2. Balaji 
+# Zentrix – Next.js Web Application
+
+This repository contains a fresh **Next.js (React) application**.  
+The project was reinitialized to move from a basic React setup to a modern, scalable Next.js architecture.
+
+---
+
+## 🚀 Tech Stack
+
+- **Framework:** Next.js (React)
+- **Language:** JavaScript / TypeScript
+- **Styling:** Tailwind CSS
+- **Package Manager:** npm
+- **Version Control:** Git & GitHub
+
+---
+
+## 🧹 Repository Reset & Fresh Start
+
+The repository was cleaned to remove previous code from `main` and `dev` branches, and a fresh Next.js app was initialized.
+
+### Steps followed:
+
+1. Removed all existing files except `.git`
+2. Initialized a new Next.js app in the same repository
+3. Committed the fresh setup to the main branch
+4. Recreated the development branch for parallel work
+
+---
+
+## 🛠️ Project Setup Steps
+
+### 1️⃣ Clone the repository
+```bash
+git clone <repo-url>
+cd zentrix
