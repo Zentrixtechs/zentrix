@@ -73,3 +73,130 @@ The repository was cleaned to remove previous code from `main` and `dev` branche
 ```bash
 git clone <repo-url>
 cd zentrix
+
+
+
+
+-- Folder structure
+
+src/
+├── app/                              # Next.js App Router (routing + layouts)
+│   ├── layout.tsx                    # Root layout → renders Header + Footer
+│   ├── page.tsx                      # Home page (/)
+│   ├── globals.css                   # Global styles (Tailwind, fonts, reset)
+│
+│   ├── about-us/
+│   │   └── page.tsx                  # /about-us page
+│
+│   ├── contact/
+│   │   └── page.tsx                  # /contact page
+│
+│   ├── pricing/
+│   │   └── page.tsx                  # /pricing page
+│
+│   ├── catalog/
+│   │   └── page.tsx                  # /catalog page
+│
+│   ├── services/                     # Services section
+│   │   ├── layout.tsx                # Services layout (banner, CTA)
+│   │   ├── page.tsx                  # /services overview
+│   │
+│   │   ├── seo/
+│   │   │   └── page.tsx              # /services/seo
+│   │
+│   │   ├── digital-marketing/
+│   │   │   └── page.tsx              # /services/digital-marketing
+│   │
+│   │   ├── lead-generation/
+│   │   │   └── page.tsx              # /services/lead-generation
+│   │
+│   │   ├── websites-development/
+│   │   │   └── page.tsx              # /services/websites-development
+│   │
+│   │   ├── logo-design/
+│   │   │   └── page.tsx              # /services/logo-design
+│   │
+│   │   ├── business-website-development/
+│   │   │   └── page.tsx              # /services/business-website-development
+│   │
+│   │   ├── seo/
+│   │   │   └── page.tsx              # /services/seo
+│   │
+│   │   ├── ai-seo/
+│   │   │   └── page.tsx              # /services/ai-seo
+│   │
+│   │   ├── local-seo/
+│   │   │   └── page.tsx              # /services/local-seo
+│   │
+│   │   ├── ads/
+│   │   │   ├── page.tsx              # /services/ads
+│   │   │   ├── google-ads/
+│   │   │   │   └── page.tsx          # /services/ads/google-ads
+│   │   │   └── meta-ads/
+│   │   │       └── page.tsx          # /services/ads/meta-ads
+│   │
+│   │   ├── app-development/
+│   │   │   └── page.tsx              # /services/app-development
+│   │
+│   │   ├── web-portals/
+│   │   │   └── page.tsx              # /services/web-portals
+│   │
+│   │   ├── custom-websites/
+│   │   │   └── page.tsx              # /services/custom-websites
+│   │
+│   │   ├── ui-ux-design/
+│   │   │   └── page.tsx              # /services/ui-ux-design
+│   │
+│   │   └── erp-solutions/
+│   │       └── page.tsx              # /services/erp-solutions
+│
+│   ├── marketing/                    # Marketing section
+│   │   ├── layout.tsx                # Marketing layout (hero, lead form)
+│   │   ├── page.tsx                  # /marketing overview
+│   │
+│   │   ├── seo/
+│   │   │   └── page.tsx              # /marketing/seo
+│   │
+│   │   ├── digital-marketing/
+│   │   │   └── page.tsx              # /marketing/digital-marketing
+│   │
+│   │   ├── lead-generation/
+│   │   │   └── page.tsx              # /marketing/lead-generation
+│   │
+│   │   ├── websites-development/
+│   │   │   └── page.tsx              # /marketing/websites-development
+│   │
+│   │   ├── logo-design/
+│   │   │   └── page.tsx              # /marketing/logo-design
+│   │
+│   │   └── ads/
+│   │       ├── google-ads/
+│   │       │   └── page.tsx          # /marketing/ads/google-ads
+│   │       └── meta-ads/
+│   │           └── page.tsx          # /marketing/ads/meta-ads
+│
+├── components/                       # Reusable UI components
+│   ├── navbar/
+│   │   ├── Header.tsx                # HEADER / NAVBAR component
+│   │   ├── ServicesMegaMenu.tsx      # Services dropdown
+│   │   ├── MarketingMegaMenu.tsx     # Marketing dropdown
+│   │   └── NavItem.tsx               # Single nav link
+│
+│   ├── footer/
+│   │   └── Footer.tsx                # Footer component
+│
+│   └── shared/
+│       ├── PageHero.tsx              # Hero/banner component
+│       ├── CTA.tsx                   # Call-to-action section
+│       └── Section.tsx               # Generic layout wrapper
+│
+├── data/                             # Menu + page content config
+│   ├── services.ts                   # Services menu & content data
+│   └── marketing.ts                  # Marketing menu & content data
+│
+├── lib/                              # Utility & helper logic
+│   ├── seo.ts                        # SEO helpers
+│   └── utils.ts                     # Generic utility functions
+│
+└── public/                           # Static assets
+    └── images/                       # Logos, banners, icons
