@@ -1,102 +1,279 @@
+// "use client";
+
+// import Link from "next/link";
+// import { useState } from "react";
+// import Image from "next/image";
+
+
+// export default function Navbar() {
+//   const [open, setOpen] = useState(false);
+
+//   return (
+//     <header className="sticky top-0 z-50 bg-white border-b">
+//       {/* ================= TOP BAR ================= */}
+//       <div className="bg-orange-50 text-sm px-8 py-2 flex justify-between items-center">
+//         <span>Looking for Marketing Services?</span>
+//         <Link
+//           href="/contact"
+//           className="bg-orange-500 text-white px-4 py-1 rounded-md text-sm font-medium"
+//         >
+//           Visit →
+//         </Link>
+//       </div>
+
+//       {/* ================= MAIN NAV ================= */}
+//       <div className="relative">
+//         <div className="max-w-7xl mx-auto px-8 py-4 flex items-center justify-between">
+//           {/* Logo */}
+//           <Link href="/" className="flex items-center gap-2 h-10">
+//             <Image
+//               src="/images/los.png"
+//               alt="Zentrix Logo"
+//               width={158}
+//               height={40}
+//               priority
+//               className="object-contain"
+//             />
+
+//           </Link>
+
+
+
+//           {/* Menu */}
+//           <nav className="hidden md:flex items-center gap-8 text-[15px] font-medium">
+//             <Link href="/">Home</Link>
+//             <Link href="/about-us">About Us</Link>
+
+//             {/* ===== SERVICES ===== */}
+//             <div
+//               className="static"
+//               onMouseEnter={() => setOpen(true)}
+//               onMouseLeave={() => setOpen(false)}
+//             >
+//               <button className="flex items-center gap-1">
+//                 Services <span>▾</span>
+//               </button>
+
+//               {open && (
+//                 <div className="absolute left-0 right-0 top-full bg-white border-t shadow-md">
+//                   <div className="max-w-7xl mx-auto px-10 py-10 grid grid-cols-4 gap-12">
+//                     <MenuColumn title="Digital Marketing">
+//                       <MenuItem label="Digital Marketing" />
+//                       <MenuItem label="Lead Generation" />
+//                     </MenuColumn>
+
+//                     <MenuColumn title="Websites Development">
+//                       <MenuItem label="Logo Design" />
+//                       <MenuItem label="Business Website Development" />
+//                     </MenuColumn>
+
+//                     <MenuColumn title="SEO">
+//                       <MenuItem label="Search Engine Optimization (SEO)" />
+//                       <MenuItem label="AI SEO Services" />
+//                       <MenuItem label="Local SEO" />
+//                     </MenuColumn>
+
+//                     <MenuColumn title="Ads">
+//                       <MenuItem label="Google Ads" />
+//                       <MenuItem label="Meta Ads" />
+//                     </MenuColumn>
+//                   </div>
+//                 </div>
+//               )}
+//             </div>
+
+//             <Link href="/pricing">Pricing</Link>
+//             <Link href="/catalog">Catalog</Link>
+//             <Link href="/contact">Contact</Link>
+//           </nav>
+
+//           {/* ================= CTA BUTTONS ================= */}
+//           <div className="hidden md:flex items-center gap-4">
+//             <Link
+//               href="/contact"
+//               className="bg-amber-300 px-5 py-2 rounded-lg font-medium"
+//             >
+//               Free Consultation
+//             </Link>
+
+//             <Link
+//               href="tel:+16124702664"
+//               className="bg-green-800 text-white px-5 py-2 rounded-lg font-medium"
+//             >
+//               +1 612-470-2664
+//             </Link>
+//           </div>
+//         </div>
+//       </div>
+//     </header>
+//   );
+// }
+
+// /* ================= HELPERS ================= */
+
+// function MenuColumn({
+//   title,
+//   children,
+// }: {
+//   title: string;
+//   children: React.ReactNode;
+// }) {
+//   return (
+//     <div>
+//       <h4 className="font-semibold mb-4 inline-block border-b-4 border-green-600">
+//         {title}
+//       </h4>
+//       <ul className="space-y-3 text-sm text-gray-800">{children}</ul>
+//     </div>
+//   );
+// }
+
+// function MenuItem({ label }: { label: string }) {
+//   return <li className="cursor-pointer hover:text-green-700">{label}</li>;
+// }
+
 "use client";
+import { ChevronDownIcon } from "@heroicons/react/24/solid";
 
 import Link from "next/link";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b">
-      {/* Top Bar */}
-      <div className="bg-orange-50 text-sm px-6 py-2 flex justify-between">
+    <header className="sticky top-0 z-50 bg-white">
+      {/* ================= TOP BAR ================= */}
+      <div className="bg-orange-50 text-sm px-8 py-2 flex justify-between items-center border-b border-orange-200">
         <span>Looking for Marketing Services?</span>
-        <Link href="/contact" className="text-orange-600 font-medium">
+        <Link
+          href="/contact"
+          className="bg-orange-500 text-white px-4 py-1 rounded-md font-medium"
+        >
           Visit →
         </Link>
       </div>
 
-      {/* Main Nav */}
-      <div className="flex items-center justify-between px-8 py-4">
-        {/* Logo */}
-        <Link href="/" className="text-2xl font-bold">
-          Zentrix
-        </Link>
+      {/* ================= MAIN NAV ================= */}
+      {/* shadow-md gives shadow at the bottom of header */}
+      <div className="relative shadow-md">
+        <div className="max-w-7xl mx-auto px-8 py-3 flex items-center justify-between">
 
-        {/* Desktop Menu */}
-        <nav className="hidden md:flex items-center gap-8">
-          <Link href="/">Home</Link>
-          <Link href="/about-us">About Us</Link>
+          {/* LOGO (slightly moved down for visual alignment) */}
+          <Link href="/" className="flex items-center gap-2 h-10">
+  <Image
+    src="/images/so.png"
+    alt="Zentrix Logo"
+    width={28}
+    height={38}
+    priority
+    className="object-contain"
+  /> 
+  <span className="text-2xl font-bold leading-none">
+    Zentrix
+  </span>
+</Link>
 
-          {/* Services Mega Menu */}
-          <div
-            className="relative"
-            onMouseEnter={() => setOpen(true)}
-            onMouseLeave={() => setOpen(false)}
-          >
-            <button className="font-medium">
-              Services ▾
-            </button>
 
-            {open && (
-              <div className="absolute left-[-300px] top-full mt-4 w-[900px] bg-white shadow-xl border p-8 grid grid-cols-4 gap-6">
-                <MenuColumn title="Digital Marketing">
-                  <MenuItem href="/services/digital-marketing" label="Digital Marketing" />
-                  <MenuItem href="/services/lead-generation" label="Lead Generation" />
-                </MenuColumn>
+          {/* MENU */}
+          <nav className="hidden md:flex items-center gap-8 text-[15px] font-small">
+            <Link href="/" className="relative  after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-green-700 after:transition-all after:duration-300 hover:after:w-full"
+            >Home</Link>
+            <Link href="/about-us" className="relative  after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-green-700 after:transition-all after:duration-300 hover:after:w-full"
+            >About Us</Link>
 
-                <MenuColumn title="Web Development">
-                  <MenuItem href="/services/logo-design" label="Logo Design" />
-                  <MenuItem href="/services/business-website-development" label="Business Website Development" />
-                </MenuColumn>
+            {/* ===== SERVICES ===== */}
+            <div
+              className="static"
+              onMouseEnter={() => setOpen(true)}
+              onMouseLeave={() => setOpen(false)}
+            >
+              <button className="flex items-center gap-1 ">
+                Services <ChevronDownIcon className="w-4 h-4 mt-[1px] font-bold" />
+              </button>
 
-                <MenuColumn title="SEO">
-                  <MenuItem href="/services/seo" label="SEO" />
-                  <MenuItem href="/services/ai-seo" label="AI SEO" />
-                  <MenuItem href="/services/local-seo" label="Local SEO" />
-                </MenuColumn>
+              {open && (
+                <div className="absolute left-0 right-0 top-full bg-white border-t shadow-lg">
+                  <div className="max-w-7xl mx-auto px-10 py-10 grid grid-cols-4 gap-12">
+                    <MenuColumn title="Digital Marketing">
+                      <MenuItem label="Digital Marketing" />
+                      <MenuItem label="Lead Generation" />
+                    </MenuColumn>
 
-                <MenuColumn title="Ads">
-                  <MenuItem href="/services/ads/google-ads" label="Google Ads" />
-                  <MenuItem href="/services/ads/meta-ads" label="Meta Ads" />
-                </MenuColumn>
-              </div>
-            )}
+                    <MenuColumn title="Websites Development">
+                      <MenuItem label="Logo Design" />
+                      <MenuItem label="Business Website Development" />
+                    </MenuColumn>
+
+                    <MenuColumn title="SEO">
+                      <MenuItem label="Search Engine Optimization (SEO)" />
+                      <MenuItem label="AI SEO Services" />
+                      <MenuItem label="Local SEO" />
+                    </MenuColumn>
+
+                    <MenuColumn title="Ads">
+                      <MenuItem label="Google Ads" />
+                      <MenuItem label="Meta Ads" />
+                    </MenuColumn>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <Link href="/pricing" className="relative  after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-green-700 after:transition-all after:duration-300 hover:after:w-full"
+            >Pricing</Link>
+            <Link href="/catalog" className="relative after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-green-700 after:transition-all after:duration-300 hover:after:w-full"
+            >Catalog</Link>
+            <Link href="/contact" className="relative  after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-green-700 after:transition-all after:duration-300 hover:after:w-full"
+            >Contact</Link>
+          </nav>
+
+          {/* ================= CTA BUTTONS ================= */}
+          <div className="hidden md:flex items-center gap-4">
+            <Link
+              href="/contact"
+              className="bg-amber-300 px-5 py-2 rounded-lg font-medium"
+            >
+              Free Consultation
+            </Link>
+
+            <Link
+              href="tel:+16124702664"
+              className="bg-green-800 text-white px-5 py-2 rounded-lg font-medium"
+            >
+              +1 612-470-2664
+            </Link>
           </div>
-
-          <Link href="/pricing">Pricing</Link>
-          <Link href="/catalog">Catalog</Link>
-          <Link href="/contact">Contact</Link>
-        </nav>
+        </div>
       </div>
     </header>
   );
 }
 
-/* Helper components */
+/* ================= HELPERS ================= */
 
-type MenuColumnProps = {
+function MenuColumn({
+  title,
+  children,
+}: {
   title: string;
   children: React.ReactNode;
-};
-
-function MenuColumn({ title, children }: MenuColumnProps) {
+}) {
   return (
     <div>
-      <h4 className="font-semibold mb-3 border-b-2 border-green-700 inline-block">
+      <h4 className="font-semibold mb-4 inline-block border-b-4 border-green-600">
         {title}
       </h4>
-      <ul className="space-y-2 text-sm text-gray-700">{children}</ul>
+      <ul className="space-y-3 text-sm text-gray-800">{children}</ul>
     </div>
   );
 }
 
-function MenuItem({ href, label }: { href: string; label: string }) {
+function MenuItem({ label }: { label: string }) {
   return (
-    <li>
-      <Link href={href} className="hover:text-green-700">
-        {label}
-      </Link>
+    <li className="cursor-pointer hover:text-green-700 transition-colors">
+      {label}
     </li>
   );
 }
