@@ -20,3 +20,6 @@ export default function RootLayout({
     </html>
   );
 }
+
+
+//children automatically renders all routes so if we just add an children route its enough 

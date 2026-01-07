@@ -231,20 +231,25 @@ export default function Navbar() {
 
           {/* ================= CTA BUTTONS ================= */}
           <div className="hidden md:flex items-center gap-4">
-            <Link
-              href="/contact"
-              className="bg-amber-300 px-5 py-2 rounded-lg font-medium"
-            >
-              Free Consultation
-            </Link>
+  {/* Free Consultation – Pink */}
+  <Link
+    href="/contact"
+    className="px-5 py-2 rounded-lg font-medium text-white transition hover:opacity-90 hover:shadow-lg"
+    style={{ backgroundColor: "#F45BFF" }}
+  >
+    Free Consultation
+  </Link>
 
-            <Link
-              href="tel:+16124702664"
-              className="bg-green-800 text-white px-5 py-2 rounded-lg font-medium"
-            >
-              +1 612-470-2664
-            </Link>
-          </div>
+  {/* Contact Number – Blue */}
+  <Link
+    href="tel:+16124702664"
+    className="px-5 py-2 rounded-lg font-medium text-white transition hover:opacity-90 hover:shadow-lg"
+    style={{ backgroundColor: "#22D3EE" }}
+  >
+    +1 612-470-2664
+  </Link>
+</div>
+
         </div>
       </div>
     </header>
