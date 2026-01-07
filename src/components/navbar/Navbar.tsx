@@ -162,18 +162,18 @@ export default function Navbar() {
 
           {/* LOGO (slightly moved down for visual alignment) */}
           <Link href="/" className="flex items-center gap-2 h-10">
-  <Image
-    src="/images/so.png"
-    alt="Zentrix Logo"
-    width={28}
-    height={38}
-    priority
-    className="object-contain"
-  /> 
-  <span className="text-2xl font-bold leading-none">
-    Zentrix
-  </span>
-</Link>
+            <Image
+              src="/images/so.png"
+              alt="Zentrix Logo"
+              width={28}
+              height={38}
+              priority
+              className="object-contain"
+            />
+            <span className="text-2xl font-bold leading-none">
+              Zentrix
+            </span>
+          </Link>
 
 
           {/* MENU */}
@@ -195,7 +195,9 @@ export default function Navbar() {
 
               {open && (
                 <div className="absolute left-0 right-0 top-full bg-white border-t shadow-lg">
-                  <div className="max-w-7xl mx-auto px-10 py-10 grid grid-cols-4 gap-12">
+                  {/* <div className="max-w-7xl mx-auto px-10 py-10 grid grid-cols-5 gap-12"> */}
+                  <div className="max-w-7xl mx-auto px-10 py-10 grid grid-cols-1 lg:grid-cols-5 gap-12">
+
                     <MenuColumn title="Digital Marketing">
                       <MenuItem label="Digital Marketing" />
                       <MenuItem label="Lead Generation" />
@@ -216,6 +218,16 @@ export default function Navbar() {
                       <MenuItem label="Google Ads" />
                       <MenuItem label="Meta Ads" />
                     </MenuColumn>
+
+                    <MenuColumn title="Development">
+                      <MenuItem label="IT Consultation" />
+                      <MenuItem label="Custom Websites" />
+                      <MenuItem label="Web Portals" />
+                      <MenuItem label="App Development" />
+                      <MenuItem label="UI / UX Design" />
+                      <MenuItem label="ERP Solutions" />
+                    </MenuColumn>
+
                   </div>
                 </div>
               )}
@@ -231,24 +243,24 @@ export default function Navbar() {
 
           {/* ================= CTA BUTTONS ================= */}
           <div className="hidden md:flex items-center gap-4">
-  {/* Free Consultation – Pink */}
-  <Link
-    href="/contact"
-    className="px-5 py-2 rounded-lg font-medium text-white transition hover:opacity-90 hover:shadow-lg"
-    style={{ backgroundColor: "#F45BFF" }}
-  >
-    Free Consultation
-  </Link>
+            {/* Free Consultation – Pink */}
+            <Link
+              href="/contact"
+              className="px-5 py-2 rounded-lg font-medium text-white transition hover:opacity-90 hover:shadow-lg"
+              style={{ backgroundColor: "#F45BFF" }}
+            >
+              Free Consultation
+            </Link>
 
-  {/* Contact Number – Blue */}
-  <Link
-    href="tel:+16124702664"
-    className="px-5 py-2 rounded-lg font-medium text-white transition hover:opacity-90 hover:shadow-lg"
-    style={{ backgroundColor: "#22D3EE" }}
-  >
-    +1 612-470-2664
-  </Link>
-</div>
+            {/* Contact Number – Blue */}
+            <Link
+              href="tel:+16124702664"
+              className="px-5 py-2 rounded-lg font-medium text-white transition hover:opacity-90 hover:shadow-lg"
+              style={{ backgroundColor: "#22D3EE" }}
+            >
+              +1 612-470-2664
+            </Link>
+          </div>
 
         </div>
       </div>
