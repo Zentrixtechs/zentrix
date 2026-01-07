@@ -2,7 +2,6 @@ import type { ReactNode } from "react";
 import Footer from "@/components/footer/Footer";
 import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
-import Home from "./page";
 
 export default function RootLayout({
   children,
@@ -13,8 +12,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Navbar />
-        {/* {children} */}
-        <Home />
+        <main className="relative z-0">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>
