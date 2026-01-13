@@ -18,3 +18,15 @@
   @apply border rounded-md px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-[#265E52];
 }
 
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 18s linear infinite;
+}
+
+
