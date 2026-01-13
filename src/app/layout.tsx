@@ -15,6 +15,7 @@ export default function RootLayout({
         <main className="relative z-0">
           {children}
         </main>
+       
         <Footer />
       </body>
     </html>
