@@ -105,9 +105,17 @@ export default function Footer() {
 function FooterColumn({ title, children }: any) {
   return (
     <div>
-      <h4 className="text-white font-semibold mb-4 relative inline-block">
+      <h4
+        className="
+          text-white font-semibold mb-4 relative inline-block
+          after:absolute after:left-0 after:-bottom-1
+          after:h-[3px] after:w-0
+          after:bg-gradient-to-r after:from-[#F028C2] after:to-[#ED2189]
+          after:transition-all after:duration-300
+          hover:after:w-full
+        "
+      >
         {title}
-        <span className="absolute left-0 -bottom-1 h-[3px] w-full bg-gradient-to-r from-[#F028C2] to-[#ED2189]" />
       </h4>
       <ul className="space-y-3">{children}</ul>
     </div>
@@ -133,6 +141,7 @@ function FooterLink({ href, children }: any) {
     </li>
   );
 }
+
 
 function SocialIcon({ href, children, label }: any) {
   return (
