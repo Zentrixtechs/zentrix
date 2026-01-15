@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { useEffect, useRef } from "react";
 
 export default function Section() {
   const [formData, setFormData] = useState({
@@ -59,6 +60,9 @@ export default function Section() {
   }
 
   return (
+
+
+    
     <section className="w-full">
       <div className="grid grid-cols-1 lg:grid-cols-2">
 
@@ -169,5 +173,10 @@ export default function Section() {
 
       </div>
     </section>
+
+    
+    
   );
 }
+
+
