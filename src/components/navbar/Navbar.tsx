@@ -13,6 +13,15 @@ export default function Navbar() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  // 🔥 MAGIC STATE (NEW)
+  const [magicStyle, setMagicStyle] = useState({
+    opacity: 0,
+    left: 0,
+    top: 0,
+    width: 0,
+    height: 0,
+  });
+
   return (
     <header className="sticky top-0 z-50 bg-white">
       {/* ================= TOP BAR ================= */}
@@ -36,9 +45,27 @@ export default function Navbar() {
           </Link>
 
           {/* ================= DESKTOP NAV ================= */}
-          <nav className="hidden md:flex items-center gap-8 text-[15px] font-medium">
-            <NavLink href="/">Home</NavLink>
-            <NavLink href="/about-us">About Us</NavLink>
+          <nav className="hidden md:flex items-center gap-8 text-[15px] font-medium relative">
+
+            {/* 🔥 MAGIC HOVER BOX (NEW) */}
+            <div className="absolute inset-0 pointer-events-none">
+              <div
+                className="absolute rounded-xl transition-all duration-300 ease-out p-[2px]"
+                style={{
+                  left: magicStyle.left,
+                  top: magicStyle.top,
+                  width: magicStyle.width,
+                  height: magicStyle.height,
+                  opacity: magicStyle.opacity,
+                }}
+              >
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#ff2f92] to-[#00f0ff] blur-sm opacity-60" />
+                <div className="relative w-full h-full rounded-xl bg-white/95 backdrop-blur-md shadow-lg" />
+              </div>
+            </div>
+
+            <NavLink href="/" setMagicStyle={setMagicStyle}>Home</NavLink>
+            <NavLink href="/about-us" setMagicStyle={setMagicStyle}>About Us</NavLink>
 
             {/* SERVICES MEGA MENU */}
             <div
@@ -46,15 +73,18 @@ export default function Navbar() {
               onMouseEnter={() => setServicesOpen(true)}
               onMouseLeave={() => setServicesOpen(false)}
             >
-              <button className="flex items-center gap-1 relative after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-green-700 after:transition-all hover:after:w-full">
+              <button
+                onMouseEnter={(e) => moveMagic(e, setMagicStyle)}
+                onMouseLeave={() => setMagicStyle((p:any)=>({...p,opacity:0}))}
+                className="flex items-center gap-1 relative z-10 px-4 py-2 rounded-xl"
+              >
                 Services
                 <ChevronDownIcon className="w-4 h-4" />
               </button>
 
               {servicesOpen && (
                 <div className="fixed left-0 top-[120px] z-50 w-full bg-white shadow-2xl border-t">
-  <div className="max-w-7xl mx-auto px-10 py-10 grid grid-cols-5 gap-10">
-
+                  <div className="max-w-7xl mx-auto px-10 py-10 grid grid-cols-5 gap-10">
                     <MenuColumn title="Digital Marketing">
                       <MenuItem label="Digital Marketing" />
                       <MenuItem label="Lead Generation" />
@@ -88,24 +118,26 @@ export default function Navbar() {
               )}
             </div>
 
-            <NavLink href="/pricing">Pricing</NavLink>
-            <NavLink href="/catalog">Catalog</NavLink>
-            <NavLink href="/contact">Contact</NavLink>
+            <NavLink href="/pricing" setMagicStyle={setMagicStyle}>Pricing</NavLink>
+            <NavLink href="/catalog" setMagicStyle={setMagicStyle}>Catalog</NavLink>
+            <NavLink href="/contact" setMagicStyle={setMagicStyle}>Contact</NavLink>
           </nav>
 
           {/* ================= CTA BUTTONS (DESKTOP) ================= */}
           <div className="hidden md:flex items-center gap-4">
             <Link
               href="/contact"
-              className="px-5 py-2 rounded-lg text-white font-medium hover:opacity-90"
-              style={{ backgroundColor: "#F45BFF" }}
-            >
+              className="px-5 py-2 rounded-lg font-semibold text-white
+bg-gradient-to-r from-[#ff2f92] to-[#00f0ff]"
+>
               Free Consultation
             </Link>
+
             <Link
               href="tel:+16124702664"
-              className="px-5 py-2 rounded-lg text-white font-medium hover:opacity-90"
-              style={{ backgroundColor: "#22D3EE" }}
+              className="px-5 py-2 rounded-lg font-semibold text-white
+bg-gradient-to-r from-[#00f0ff] to-[#3b82f6]"
+
             >
               +1 612-470-2664
             </Link>
@@ -144,11 +176,13 @@ export default function Navbar() {
 
 /* ================= HELPERS ================= */
 
-function NavLink({ href, children }: any) {
+function NavLink({ href, children, setMagicStyle }: any) {
   return (
     <Link
       href={href}
-      className="relative after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-green-700 after:transition-all hover:after:w-full"
+      onMouseEnter={(e) => moveMagic(e, setMagicStyle)}
+      onMouseLeave={() => setMagicStyle((p:any)=>({...p,opacity:0}))}
+      className="relative z-10 px-4 py-2 rounded-xl hover:text-gray-900"
     >
       {children}
     </Link>
@@ -172,4 +206,18 @@ function MenuColumn({ title, children }: any) {
 
 function MenuItem({ label }: { label: string }) {
   return <li className="cursor-pointer hover:text-green-700">{label}</li>;
+}
+
+// 🔥 MAGIC MOVE FUNCTION (NEW)
+function moveMagic(e:any, setMagicStyle:any){
+  const rect = e.currentTarget.getBoundingClientRect();
+  const nav = e.currentTarget.closest("nav")!.getBoundingClientRect();
+
+  setMagicStyle({
+    opacity: 1,
+    left: rect.left - nav.left,
+    top: rect.top - nav.top,
+    width: rect.width,
+    height: rect.height,
+  });
 }

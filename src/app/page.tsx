@@ -389,61 +389,61 @@ export default function Home() {
     </div>
   </div>
 </section>
-{/* ================= TRUSTED CLIENTS ================= */}
-<section className="py-28 bg-white relative overflow-hidden">
+  {/* ================= TRUSTED CLIENTS ================= */}
+  <section className="py-28 bg-white relative overflow-hidden">
 
-  <div className="max-w-7xl mx-auto px-6">
+    <div className="max-w-7xl mx-auto px-6">
 
-    <Reveal>
-      <h2 className="text-4xl md:text-5xl font-bold text-center text-black">
-        Our <span className="bg-gradient-to-r from-[#ff2f92] to-[#2D96EB] bg-clip-text text-transparent">
-          Trusted Clients
-        </span>
-      </h2>
+      <Reveal>
+        <h2 className="text-4xl md:text-5xl font-bold text-center text-black">
+          Our <span className="bg-gradient-to-r from-[#ff2f92] to-[#2D96EB] bg-clip-text text-transparent">
+            Trusted Clients
+          </span>
+        </h2>
 
-      <p className="mt-4 max-w-3xl mx-auto text-center text-black/70">
-        From startups to enterprises, we provide digital marketing solutions that help your business grow, reach more customers, and deliver real results.
-      </p>
-    </Reveal>
+        <p className="mt-4 max-w-3xl mx-auto text-center text-black/70">
+          From startups to enterprises, we provide digital marketing solutions that help your business grow, reach more customers, and deliver real results.
+        </p>
+      </Reveal>
 
-    {/* Clients Marquee */}
-    <Reveal delay={200}>
-      <div className="mt-16 overflow-hidden">
-        <div className="flex gap-12 animate-clients-marquee items-center">
-          {SERVICE_ICONS.concat(SERVICE_ICONS).map((client, i) => (
-            <div
-              key={i}
-              className="client-card flex-shrink-0 w-[200px] h-[120px] rounded-xl bg-white border border-[#00f0ff]/30 hover:border-[#ff2f92] hover:shadow-xl transition-all flex items-center justify-center"
-            >
-              <Image
-                src={client.img}
-                alt="Client Logo"
-                width={140}
-                height={80}
-                className="object-contain"
-              />
-            </div>
-          ))}
+      {/* Clients Marquee */}
+      <Reveal delay={200}>
+        <div className="mt-16 overflow-hidden">
+          <div className="flex gap-12 animate-clients-marquee items-center">
+            {SERVICE_ICONS.concat(SERVICE_ICONS).map((client, i) => (
+              <div
+                key={i}
+                className="client-card flex-shrink-0 w-[200px] h-[120px] rounded-xl bg-white border border-[#00f0ff]/30 hover:border-[#ff2f92] hover:shadow-xl transition-all flex items-center justify-center"
+              >
+                <Image
+                  src={client.img}
+                  alt="Client Logo"
+                  width={140}
+                  height={80}
+                  className="object-contain"
+                />
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </Reveal>
+      </Reveal>
 
-    {/* CTA */}
-    <Reveal delay={350}>
-      <div className="mt-14 text-center">
-        <Link
-          href="/catalog"
-          className="inline-flex items-center gap-3 px-7 py-3 rounded-lg font-semibold text-white
-          bg-gradient-to-r from-[#F028C2] to-[#2D96EB]
-          hover:scale-105 transition-all"
-        >
-          Explore More <span className="transition group-hover:translate-x-1">→</span>
-        </Link>
-      </div>
-    </Reveal>
+      {/* CTA */}
+      <Reveal delay={350}>
+        <div className="mt-14 text-center">
+          <Link
+            href="/catalog"
+            className="inline-flex items-center gap-3 px-7 py-3 rounded-lg font-semibold text-white
+            bg-gradient-to-r from-[#F028C2] to-[#2D96EB]
+            hover:scale-105 transition-all"
+          >
+            Explore More <span className="transition group-hover:translate-x-1">→</span>
+          </Link>
+        </div>
+      </Reveal>
 
-  </div>
-</section>
+    </div>
+  </section>
 
       {/* ================= CTA ================= */}
       <section className="py-24 bg-gradient-to-r from-[#ff2f92] via-[#00f0ff] to-[#3b82f6] text-white">

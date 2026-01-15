@@ -1,122 +1,136 @@
 "use client";
-
 import Reveal from "@/components/Reveal";
-import Image from "next/image";
-import Link from "next/link";
+import { useRef, useState, useEffect } from "react";
 
-const FUNNEL = [
-  { title: "Awareness", items: ["Branding", "Social Media", "Content Marketing"] },
-  { title: "Consideration", items: ["SEO", "Website UX", "Email Marketing"] },
-  { title: "Conversion", items: ["Landing Pages", "Lead Funnels", "Remarketing"] },
-  { title: "Retention", items: ["CRM Automation", "WhatsApp Marketing", "Loyalty Programs"] },
-];
+function CountUp({ end }: { end: number }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLSpanElement | null>(null);
+  const started = useRef(false);
 
-export default function DigitalMarketing() {
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting || started.current) return;
+      started.current = true;
+      const startTime = performance.now();
+      const duration = 800;
+
+      const animate = (now: number) => {
+        const progress = Math.min((now - startTime) / duration, 1);
+        setCount(Math.floor(progress * end));
+        if (progress < 1) requestAnimationFrame(animate);
+      };
+      requestAnimationFrame(animate);
+    });
+
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [end]);
+
+  return <span ref={ref}>{count}</span>;
+}
+
+export default function FreeAuditSection() {
   return (
-    <main className="bg-white overflow-x-hidden">
+    <section className="py-32 bg-gradient-to-br from-[#0f172a] via-[#020617] to-black text-white relative overflow-hidden">
+      
+      {/* Floating Blobs */}
+      <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-[#ff2f92]/30 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute top-1/2 -right-40 w-[500px] h-[500px] bg-[#00f0ff]/30 rounded-full blur-3xl animate-pulse" />
 
-      {/* HERO */}
-      <section className="pt-32 pb-24">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+      <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+
+        {/* LEFT TEXT + STATS */}
+        <div>
           <Reveal>
-            <div>
-              <h1 className="text-5xl md:text-6xl font-bold leading-tight">
-                Digital Marketing That Drives{" "}
-                <span className="bg-gradient-to-r from-[#ff2f92] to-[#2D96EB] bg-clip-text text-transparent">
-                  Real Business Growth
-                </span>
-              </h1>
-              <p className="mt-6 max-w-xl text-black/70">
-                We build full-funnel digital strategies that attract, convert and retain customers using SEO, Ads and Automation.
-              </p>
-              <Link href="/contact" className="inline-block mt-8 px-6 py-3 rounded-lg bg-gradient-to-r from-[#F028C2] to-[#2D96EB] text-white font-semibold hover:scale-105 transition">
-                Get Free Strategy Call →
-              </Link>
-            </div>
+            <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+              Best Digital Marketing Agency <br />
+              <span className="bg-gradient-to-r from-[#ff2f92] to-[#2D96EB] bg-clip-text text-transparent">
+                Grow Your Business With Us
+              </span>
+            </h2>
           </Reveal>
 
-          <Reveal delay={200}>
-            <Image src="/images/360stratergy.jpeg" alt="Digital Marketing" width={600} height={500} className="rounded-xl shadow-xl" />
+          <Reveal delay={150}>
+            <p className="mt-6 text-white/70 max-w-xl">
+              Get a free audit & see exactly how to increase traffic, leads, and revenue.
+            </p>
           </Reveal>
-        </div>
-      </section>
 
-      {/* STATS */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10 text-center">
-          {[["500+","Clients"],["3X","Avg ROI"],["10+","Years Experience"]].map((s,i)=>(
-            <Reveal key={i} delay={i*100}>
-              <div>
-                <h3 className="text-4xl font-bold text-[#ff2f92]">{s[0]}</h3>
-                <p className="text-black/70">{s[1]}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      {/* FUNNEL */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <Reveal><h2 className="text-4xl font-bold text-center mb-16">Our 360° Growth Funnel</h2></Reveal>
-          <div className="grid md:grid-cols-4 gap-8">
-            {FUNNEL.map((f,i)=>(
-              <Reveal key={i} delay={i*120}>
-                <div className="p-6 bg-white rounded-2xl border hover:shadow-xl">
-                  <h3 className="text-xl font-bold text-[#ff2f92] mb-3">{f.title}</h3>
-                  <ul className="text-sm space-y-2 text-black/70">
-                    {f.items.map((x,j)=><li key={j}>• {x}</li>)}
-                  </ul>
+          {/* Stats */}
+          <div className="grid grid-cols-3 gap-8 mt-12">
+            {[
+              { v: 340, t: "Website Traffic" },
+              { v: 450, t: "Lead Increase" },
+              { v: 4, t: "Organic Revenue X" },
+            ].map((s, i) => (
+              <Reveal key={i} delay={i * 120}>
+                <div className="glass p-6 rounded-2xl text-center border border-white/10 hover:scale-105 transition-transform">
+                  <h3 className="text-4xl font-extrabold text-[#00f0ff]">
+                    <CountUp end={s.v} />{s.v === 4 ? "X" : "%"}
+                  </h3>
+                  <p className="text-xs uppercase tracking-widest mt-2 text-white/60">{s.t}</p>
                 </div>
               </Reveal>
             ))}
           </div>
         </div>
-      </section>
 
-      {/* SERVICES */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-6">
-          <Reveal><h2 className="text-4xl font-bold text-center">What We Do</h2></Reveal>
-          <div className="grid md:grid-cols-3 gap-8 mt-16">
-            {["SEO","Google Ads","Meta Ads","Social Media Marketing","Content Marketing","Marketing Automation"].map((s,i)=>(
-              <Reveal key={i} delay={i*100}>
-                <div className="p-8 rounded-2xl border hover:shadow-xl">
-                  <h3 className="text-xl font-semibold mb-2">{s}</h3>
-                  <p className="text-black/70 text-sm">High-impact {s.toLowerCase()} strategies built for ROI.</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+        {/* RIGHT FORM */}
+        <Reveal delay={250}>
+          <form className="glass rounded-3xl p-10 space-y-5 border border-white/10 shadow-xl">
+            <h3 className="text-2xl font-bold mb-4 text-center">
+              Get Free Marketing Audit
+            </h3>
 
-      {/* PROCESS */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <Reveal><h2 className="text-4xl font-bold text-center">Our Proven Process</h2></Reveal>
-          <div className="grid md:grid-cols-4 gap-8 mt-16">
-            {["Audit","Strategy","Launch","Scale"].map((p,i)=>(
-              <Reveal key={i} delay={i*120}>
-                <div className="p-6 text-center bg-white border rounded-xl">
-                  <h4 className="font-semibold">{p}</h4>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+            <input placeholder="Name *" className="form-input" />
+            <input placeholder="Email *" className="form-input" />
+            <input placeholder="Mobile *" className="form-input" />
+            <input placeholder="Website (optional)" className="form-input" />
+            
+            <select className="form-input">
+              <option>Select Service</option>
+              <option>SEO</option>
+              <option>Google Ads</option>
+              <option>Web Development</option>
+              <option>Social Media</option>
+            </select>
 
-      {/* CTA */}
-      <section className="py-24 bg-gradient-to-r from-[#ff2f92] via-[#00f0ff] to-[#3b82f6] text-white text-center">
-        <Reveal>
-          <h2 className="text-4xl font-bold">Want Predictable Lead Flow?</h2>
-          <Link href="/contact" className="inline-block mt-8 px-8 py-4 bg-white text-black rounded-lg font-semibold">
-            Book Free Consultation
-          </Link>
+            <button className="w-full py-3 rounded-xl bg-gradient-to-r from-[#ff2f92] to-[#2D96EB] font-semibold hover:scale-105 transition-transform">
+              Get Free Audit →
+            </button>
+          </form>
         </Reveal>
-      </section>
 
-    </main>
+      </div>
+
+      <style jsx>{`
+        .glass {
+          background: rgba(255,255,255,0.05);
+          backdrop-filter: blur(25px);
+          -webkit-backdrop-filter: blur(25px);
+        }
+
+        .form-input {
+          width: 100%;
+          padding: 14px;
+          border-radius: 12px;
+          background: rgba(255,255,255,0.06);
+          border: 1px solid rgba(255,255,255,0.15);
+          color: white;
+          outline: none;
+          transition: all 0.3s ease;
+        }
+
+        .form-input::placeholder {
+          color: rgba(255,255,255,0.6);
+        }
+
+        .form-input:focus {
+          border-color: #00f0ff;
+          background: rgba(255,255,255,0.1);
+          box-shadow: 0 0 10px rgba(0,240,255,0.3);
+        }
+      `}</style>
+    </section>
   );
 }
