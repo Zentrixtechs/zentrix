@@ -68,23 +68,40 @@ export default function Navbar() {
             <NavLink href="/about-us" setMagicStyle={setMagicStyle}>About Us</NavLink>
 
             {/* SERVICES MEGA MENU */}
+            {/* ================= SERVICES MEGA MENU ================= */}
+            {/* SERVICES MEGA MENU */}
             <div
-              className="relative"
               onMouseEnter={() => setServicesOpen(true)}
               onMouseLeave={() => setServicesOpen(false)}
+              className="relative"
             >
+              {/* Services Button */}
               <button
                 onMouseEnter={(e) => moveMagic(e, setMagicStyle)}
-                onMouseLeave={() => setMagicStyle((p:any)=>({...p,opacity:0}))}
-                className="flex items-center gap-1 relative z-10 px-4 py-2 rounded-xl"
+                onMouseLeave={() =>
+                  setMagicStyle((p: any) => ({ ...p, opacity: 0 }))
+                }
+                className="flex items-center gap-1 relative z-20 px-4 py-2 rounded-xl"
               >
                 Services
                 <ChevronDownIcon className="w-4 h-4" />
               </button>
 
-              {servicesOpen && (
-                <div className="fixed left-0 top-[120px] z-50 w-full bg-white shadow-2xl border-t">
-                  <div className="max-w-7xl mx-auto px-10 py-10 grid grid-cols-5 gap-10">
+              {/* Mega Menu (FIXED to viewport) */}
+              <div
+                className={`
+      fixed left-1/2 top-[110px] z-50
+      -translate-x-1/2
+      transition-all duration-200 ease-out
+      ${servicesOpen
+                    ? "opacity-100 visible translate-y-0"
+                    : "opacity-0 invisible -translate-y-2"
+                  }
+    `}
+              >
+                <div className="max-w-[1200px] w-[95vw] bg-white rounded-2xl shadow-2xl border px-10 py-8">
+                  <div className="grid grid-cols-5 gap-x-14 items-start">
+
                     <MenuColumn title="Digital Marketing">
                       <MenuItem label="Digital Marketing" />
                       <MenuItem label="Lead Generation" />
@@ -108,15 +125,19 @@ export default function Navbar() {
 
                     <MenuColumn title="Development">
                       <MenuItem label="IT Consultation" />
-                      <MenuItem label="Web Portals" />
+                      <MenuItem label="Custom Websites" />
                       <MenuItem label="App Development" />
                       <MenuItem label="UI / UX Design" />
                       <MenuItem label="ERP Solutions" />
                     </MenuColumn>
+
                   </div>
                 </div>
-              )}
+              </div>
             </div>
+
+
+
 
             <NavLink href="/pricing" setMagicStyle={setMagicStyle}>Pricing</NavLink>
             <NavLink href="/catalog" setMagicStyle={setMagicStyle}>Catalog</NavLink>
@@ -129,7 +150,7 @@ export default function Navbar() {
               href="/contact"
               className="px-5 py-2 rounded-lg font-semibold text-white
 bg-gradient-to-r from-[#ff2f92] to-[#00f0ff]"
->
+            >
               Free Consultation
             </Link>
 
@@ -181,7 +202,7 @@ function NavLink({ href, children, setMagicStyle }: any) {
     <Link
       href={href}
       onMouseEnter={(e) => moveMagic(e, setMagicStyle)}
-      onMouseLeave={() => setMagicStyle((p:any)=>({...p,opacity:0}))}
+      onMouseLeave={() => setMagicStyle((p: any) => ({ ...p, opacity: 0 }))}
       className="relative z-10 px-4 py-2 rounded-xl hover:text-gray-900"
     >
       {children}
@@ -195,21 +216,29 @@ function MobileLink({ href, children }: any) {
 
 function MenuColumn({ title, children }: any) {
   return (
-    <div>
-      <h4 className="font-semibold mb-4 border-b-4 border-green-600 inline-block">
+    <div className="flex flex-col gap-3">
+      <h4 className="font-semibold text-sm border-b-2 border-green-600 inline-block pb-1">
         {title}
       </h4>
-      <ul className="space-y-3 text-sm">{children}</ul>
+      <ul className="space-y-2 text-sm text-gray-700">
+        {children}
+      </ul>
     </div>
   );
 }
 
+
 function MenuItem({ label }: { label: string }) {
-  return <li className="cursor-pointer hover:text-green-700">{label}</li>;
+  return (
+    <li className="cursor-pointer hover:text-green-700 transition leading-6">
+      {label}
+    </li>
+  );
 }
 
+
 // 🔥 MAGIC MOVE FUNCTION (NEW)
-function moveMagic(e:any, setMagicStyle:any){
+function moveMagic(e: any, setMagicStyle: any) {
   const rect = e.currentTarget.getBoundingClientRect();
   const nav = e.currentTarget.closest("nav")!.getBoundingClientRect();
 
