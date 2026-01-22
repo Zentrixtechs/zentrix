@@ -217,9 +217,16 @@ function MobileLink({ href, children }: any) {
 function MenuColumn({ title, children }: any) {
   return (
     <div className="flex flex-col gap-3">
-      <h4 className="font-semibold text-sm border-b-2 border-green-600 inline-block pb-1">
+      <h4
+        className="
+          font-semibold text-sm inline-block
+          bg-gradient-to-r from-[#F028C2] to-[#2D96EB]
+          bg-clip-text text-transparent
+        "
+      >
         {title}
       </h4>
+
       <ul className="space-y-2 text-sm text-gray-700">
         {children}
       </ul>
@@ -230,9 +237,23 @@ function MenuColumn({ title, children }: any) {
 
 function MenuItem({ label }: { label: string }) {
   return (
-    <li className="cursor-pointer hover:text-green-700 transition leading-6">
-      {label}
-    </li>
+    <Link href="/">
+      <li className="cursor-pointer text-sm text-gray-700 py-1">
+        <span
+          className="
+            relative inline-block
+            after:absolute after:left-0 after:-bottom-1
+            after:h-[2px] after:w-full
+            after:origin-left after:scale-x-0
+            after:bg-gradient-to-r after:from-[#ff2f92] after:to-[#00f0ff]
+            after:transition-transform after:duration-300
+            hover:after:scale-x-100
+          "
+        >
+          {label}
+        </span>
+      </li>
+    </Link>
   );
 }
 
