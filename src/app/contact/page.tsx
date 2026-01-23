@@ -1,4 +1,6 @@
 "use client";
+
+import Head from "next/head";
 import Reveal from "@/components/Reveal";
 import { useRef, useState, useEffect } from "react";
 
@@ -29,108 +31,267 @@ function CountUp({ end }: { end: number }) {
   return <span ref={ref}>{count}</span>;
 }
 
-export default function FreeAuditSection() {
+export default function ContactPage() {
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    // TODO: Add your form submission logic here (API call)
+    setTimeout(() => setLoading(false), 1500); // Mock submission delay
+  };
+
   return (
-    <section className="py-32 bg-gradient-to-br from-[#0f172a] via-[#020617] to-black text-white relative overflow-hidden">
-      
-      {/* Floating Blobs */}
-      <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-[#ff2f92]/30 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute top-1/2 -right-40 w-[500px] h-[500px] bg-[#00f0ff]/30 rounded-full blur-3xl animate-pulse" />
+    <>
+      {/* ================= SEO META ================= */}
+      <Head>
+        <title>Contact Digital Marketing Experts | SEO, Ads & Growth Strategy</title>
+        <meta
+          name="description"
+          content="Get in touch with our digital marketing experts for SEO, Google Ads, web development, and branding. Proven growth strategies that deliver real results."
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://yourdomain.com/contact" />
 
-      <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+        {/* Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              name: "Your Agency Name",
+              url: "https://yourdomain.com",
+              contactPoint: {
+                "@type": "ContactPoint",
+                telephone: "+91-XXXXXXXXXX",
+                contactType: "customer service",
+              },
+              address: {
+                "@type": "PostalAddress",
+                addressCountry: "IN",
+              },
+              sameAs: [
+                "https://www.linkedin.com/company/yourcompany",
+                "https://www.instagram.com/yourcompany",
+              ],
+            }),
+          }}
+        />
+      </Head>
 
-        {/* LEFT TEXT + STATS */}
-        <div>
-          <Reveal>
-            <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-              Best Digital Marketing Agency <br />
-              <span className="bg-gradient-to-r from-[#ff2f92] to-[#2D96EB] bg-clip-text text-transparent">
-                Grow Your Business With Us
-              </span>
-            </h2>
+      <section
+        className="py-18 md:py-12 bg-gradient-to-br from-[#0f172a] via-[#020617] to-black text-white relative overflow-hidden"
+        aria-labelledby="contact-heading"
+      >
+        {/* Background blobs */}
+        <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-[#ff2f92]/30 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 -right-40 w-[500px] h-[500px] bg-[#00f0ff]/30 rounded-full blur-3xl" />
+
+        <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+
+          {/* LEFT CONTENT */}
+          <article>
+            <Reveal>
+              <h1
+                id="contact-heading"
+                className="text-4xl md:text-5xl font-bold leading-tight"
+              >
+                Get in Touch With <br />
+                <span className="bg-gradient-to-r from-[#ff2f92] to-[#2D96EB] bg-clip-text text-transparent">
+                  Our Digital Marketing Experts
+                </span>
+              </h1>
+            </Reveal>
+
+            <Reveal delay={150}>
+              <p className="mt-6 text-white/70 max-w-xl">
+                Full‑stack digital marketing services to boost search visibility, capture quality leads, and scale revenue. Harness the power of SEO, Google & Meta ads, strategic content, high‑converting websites, and expert brand building
+              </p>
+            </Reveal>
+
+            {/* STATS */}
+            <section className="grid grid-cols-3 gap-8 mt-12" aria-label="Company performance statistics">
+              {[
+                { v: 340, t: "Website Traffic Growth", suffix: "%" },
+                { v: 450, t: "Qualified Lead Increase", suffix: "%" },
+                { v: 4, t: "Organic Revenue Growth", suffix: "X" },
+              ].map((s, i) => (
+                <Reveal key={i} delay={i * 120}>
+                  <div className="glass stat-card rounded-2xl border border-white/15 flex flex-col items-center justify-center">
+                    <div className="stat-number flex items-center justify-center">
+                      <h3 className="text-4xl font-extrabold bg-gradient-to-r from-[#ff2f92] to-[#2D96EB] bg-clip-text text-transparent">
+                        <CountUp end={s.v} />{s.suffix}
+                      </h3>
+                    </div>
+                    <p className="stat-label text-xs uppercase tracking-widest text-white/60 text-center">
+                      {s.t}
+                    </p>
+                  </div>
+                </Reveal>
+              ))}
+            </section>
+          </article>
+
+          {/* RIGHT FORM */}
+          <Reveal delay={250}>
+            <form
+              className="glass rounded-3xl p-10 space-y-5 border border-white/10 shadow-xl"
+              method="post"
+              aria-label="Contact form"
+              onSubmit={handleSubmit}
+            >
+              <h2 className="text-2xl font-bold mb-2 text-center">
+                Get a Free Growth Audit
+              </h2>
+              <p></p>
+
+              <label className="sr-only">Full Name</label>
+              <input
+                name="name"
+                required
+                aria-required="true"
+                placeholder="Full Name *"
+                className="form-input"
+              />
+
+              <label className="sr-only">Email Address</label>
+              <input
+                type="email"
+                name="email"
+                required
+                aria-required="true"
+                placeholder="Email Address *"
+                className="form-input"
+              />
+
+              <label className="sr-only">Phone Number</label>
+              <input
+                type="tel"
+                name="phone"
+                required
+                aria-required="true"
+                placeholder="Phone Number *"
+                className="form-input"
+              />
+
+              <input
+                name="website"
+                placeholder="Website URL (Optional)"
+                className="form-input"
+              />
+
+              <select
+                name="service"
+                required
+                aria-label="Select Service"
+                className="form-input custom-select"
+              >
+                <option value="">Select Service</option>
+                <option>Digital Marketing</option>
+                <option>SEO</option>
+                <option>Google Ads</option>
+                <option>Web Development</option>
+                <option>Branding & Design</option>
+              </select>
+
+              <textarea
+                name="message"
+                placeholder="Tell us about your project"
+                className="form-input h-28 resize-none"
+              />
+
+              {/* Trust Text */}
+              <p className="text-xs text-white/60 text-center">
+                🔒 We respect your privacy. No spam. No sales pressure.
+              </p>
+
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full py-3 rounded-xl bg-gradient-to-r from-[#ff2f92] to-[#2D96EB] font-semibold disabled:opacity-60"
+              >
+                {loading ? "Submitting..." : "Submit →"}
+              </button>
+            </form>
           </Reveal>
-
-          <Reveal delay={150}>
-            <p className="mt-6 text-white/70 max-w-xl">
-              Get a free audit & see exactly how to increase traffic, leads, and revenue.
-            </p>
-          </Reveal>
-
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-8 mt-12">
-            {[
-              { v: 340, t: "Website Traffic" },
-              { v: 450, t: "Lead Increase" },
-              { v: 4, t: "Organic Revenue X" },
-            ].map((s, i) => (
-              <Reveal key={i} delay={i * 120}>
-                <div className="glass p-6 rounded-2xl text-center border border-white/10 hover:scale-105 transition-transform">
-                  <h3 className="text-4xl font-extrabold text-[#00f0ff]">
-                    <CountUp end={s.v} />{s.v === 4 ? "X" : "%"}
-                  </h3>
-                  <p className="text-xs uppercase tracking-widest mt-2 text-white/60">{s.t}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
         </div>
 
-        {/* RIGHT FORM */}
-        <Reveal delay={250}>
-          <form className="glass rounded-3xl p-10 space-y-5 border border-white/10 shadow-xl">
-            <h3 className="text-2xl font-bold mb-4 text-center">
-              Get Free Marketing Audit
-            </h3>
+        {/* STYLES */}
+        <style jsx>{`
+          .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(25px);
+          }
 
-            <input placeholder="Name *" className="form-input" />
-            <input placeholder="Email *" className="form-input" />
-            <input placeholder="Mobile *" className="form-input" />
-            <input placeholder="Website (optional)" className="form-input" />
-            
-            <select className="form-input">
-              <option>Select Service</option>
-              <option>SEO</option>
-              <option>Google Ads</option>
-              <option>Web Development</option>
-              <option>Social Media</option>
-            </select>
+          .form-input {
+            width: 100%;
+            padding: 14px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: white;
+          }
 
-            <button className="w-full py-3 rounded-xl bg-gradient-to-r from-[#ff2f92] to-[#2D96EB] font-semibold hover:scale-105 transition-transform">
-              Get Free Audit →
-            </button>
-          </form>
-        </Reveal>
+          .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+          }
 
-      </div>
+          .form-input:focus {
+            border-color: #00f0ff;
+            outline: none;
+          }
 
-      <style jsx>{`
-        .glass {
-          background: rgba(255,255,255,0.05);
-          backdrop-filter: blur(25px);
-          -webkit-backdrop-filter: blur(25px);
-        }
+          .stat-card {
+            height: 150px;
+            padding: 24px;
+          }
 
-        .form-input {
-          width: 100%;
-          padding: 14px;
-          border-radius: 12px;
-          background: rgba(255,255,255,0.06);
-          border: 1px solid rgba(255,255,255,0.15);
-          color: white;
-          outline: none;
-          transition: all 0.3s ease;
-        }
+          .stat-number {
+            height: 48px;
+            margin-bottom: 8px;
+          }
 
-        .form-input::placeholder {
-          color: rgba(255,255,255,0.6);
-        }
+          .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+          }
 
-        .form-input:focus {
-          border-color: #00f0ff;
-          background: rgba(255,255,255,0.1);
-          box-shadow: 0 0 10px rgba(0,240,255,0.3);
-        }
-      `}</style>
-    </section>
+          /* ===== SELECT FIX ===== */
+          .custom-select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background:
+              linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02)),
+              url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M7 10l5 5 5-5'/%3E%3C/svg%3E")
+                no-repeat right 16px center;
+            background-size: 16px;
+            padding-right: 48px;
+            cursor: pointer;
+          }
+
+          .custom-select option {
+            background: #020617;
+            color: white;
+          }
+
+          .custom-select:focus {
+            border-color: #ff2f92;
+            box-shadow: 0 0 0 1px rgba(255,47,146,0.6);
+          }
+
+          @media (max-width: 640px) {
+            .stat-card {
+              height: auto;
+              padding: 20px;
+            }
+          }
+        `}</style>
+      </section>
+    </>
   );
 }
