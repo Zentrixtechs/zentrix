@@ -25,11 +25,11 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-white">
       {/* ================= TOP BAR ================= */}
-      <div className="bg-orange-50 text-sm px-4 md:px-8 py-2 flex justify-between items-center border-b border-orange-200">
+      <div className="bg-white text-sm px-4 md:px-8 py-2 flex justify-between items-center border-b border-orange-200">
         <span>Looking for Marketing Services?</span>
         <Link
           href="/contact"
-          className="bg-orange-500 text-white px-4 py-1 rounded-md font-medium"
+          className="bg-pink-500 text-white px-4 py-1 rounded-md font-medium"
         >
           Visit →
         </Link>
