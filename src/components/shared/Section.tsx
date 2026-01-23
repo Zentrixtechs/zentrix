@@ -245,7 +245,7 @@ export default function Section() {
       <div className="grid grid-cols-1 lg:grid-cols-2">
 
         {/* ================= LEFT PANEL ================= */}
-        <div className="bg-gradient-to-br from-[#F028C2] to-[#2D96EB] text-white px-10 py-16">
+        <div className="bg-gradient-to-br from-[#F028C2] to-[#2D96EB] text-white px-10 py-10">
           <h2 className="text-3xl font-semibold leading-snug mb-8">
             Headquartered in the USA, <br />
             <span className="text-white drop-shadow-md">Delivering Services Worldwide!</span>
@@ -263,7 +263,7 @@ export default function Section() {
               <span className="text-xl">📞</span> +1 612-470-2664
             </li>
             <li className="flex items-center gap-3">
-              <span className="text-xl">✉️</span> support@nshine.tech
+              <span className="text-xl">✉️</span> support@Zentrix.tech
             </li>
           </ul>
         </div>

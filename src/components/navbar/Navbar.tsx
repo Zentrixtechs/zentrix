@@ -76,16 +76,18 @@ export default function Navbar() {
               className="relative"
             >
               {/* Services Button */}
-              <button
+              <Link
+                href="/services"
                 onMouseEnter={(e) => moveMagic(e, setMagicStyle)}
                 onMouseLeave={() =>
                   setMagicStyle((p: any) => ({ ...p, opacity: 0 }))
                 }
-                className="flex items-center gap-1 relative z-20 px-4 py-2 rounded-xl"
+                className="flex items-center gap-1 relative z-20 px-4 py-2 rounded-xl cursor-pointer"
               >
                 Services
                 <ChevronDownIcon className="w-4 h-4" />
-              </button>
+              </Link>
+
 
               {/* Mega Menu (FIXED to viewport) */}
               <div
