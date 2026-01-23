@@ -243,24 +243,24 @@ export default function Footer() {
 
           {/* SERVICES */}
           <FooterColumn title="Services">
-            <FooterLink href="/marketing/digital-marketing">Digital Marketing</FooterLink>
-            <FooterLink href="/marketing/lead-generation">Lead Generation</FooterLink>
-            <FooterLink href="/services/business-website-development">
+            <FooterLink href="/">Digital Marketing</FooterLink>
+            <FooterLink href="/">Lead Generation</FooterLink>
+            <FooterLink href="/">
               Website Development
             </FooterLink>
-            <FooterLink href="/services/app-development">App Development</FooterLink>
-            <FooterLink href="/services/erp-solutions">ERP Solutions</FooterLink>
-            <FooterLink href="/services/ui-ux-design">UI / UX Design</FooterLink>
-            <FooterLink href="/services/it-consultation">IT Consultation</FooterLink>
+            <FooterLink href="/">App Development</FooterLink>
+            <FooterLink href="/">ERP Solutions</FooterLink>
+            <FooterLink href="/">UI / UX Design</FooterLink>
+            <FooterLink href="/">IT Consultation</FooterLink>
           </FooterColumn>
 
           {/* MARKETING */}
           <FooterColumn title="Marketing">
-            <FooterLink href="/marketing/seo">Search Engine Optimization</FooterLink>
-            <FooterLink href="/marketing/ai-seo">AI SEO Services</FooterLink>
-            <FooterLink href="/marketing/local-seo">Local SEO</FooterLink>
-            <FooterLink href="/marketing/google-ads">Google Ads</FooterLink>
-            <FooterLink href="/marketing/meta-ads">Meta Ads</FooterLink>
+            <FooterLink href="/">Search Engine Optimization</FooterLink>
+            <FooterLink href="/">AI SEO Services</FooterLink>
+            <FooterLink href="/">Local SEO</FooterLink>
+            <FooterLink href="/">Google Ads</FooterLink>
+            <FooterLink href="/">Meta Ads</FooterLink>
           </FooterColumn>
 
           {/* QUICK LINKS */}
