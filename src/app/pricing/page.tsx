@@ -1,641 +1,43 @@
-
-
-
-// "use client";
-
-// import Link from "next/link";
-// import { useState } from "react";
-// import { PlusIcon, MinusIcon } from "@heroicons/react/24/outline";
-
-// /* ======================================================
-//    PAGE
-// ====================================================== */
-
-// export default function PricingPage() {
-//   return (
-//     <>
-//       <PricingHero />
-//       <PopularPricing />
-//       <WebsitePricing />
-//       <SEOPricingTable />
-//       <MetaAdsPricing />
-//       <GoogleAdsPricing />
-//       <SEOFAQ />
-//     </>
-//   );
-// }
-
-// /* ======================================================
-//    SECTIONS
-// ====================================================== */
-
-// const faqs = [
-//   {
-//     question: "What factors influence the pricing of NShine Digital Marketing services?",
-//     answer:
-//       "Our pricing is determined by several factors, including the scope of services required, project complexity, industry competitiveness, and your specific business goals. We customize our pricing packages to ensure you receive maximum value based on your needs."
-//   },
-//   {
-//     question: "Are there any hidden fees in your pricing?",
-//     answer:
-//       "No. We believe in complete transparency. All costs are clearly outlined before the project begins, and there are no hidden charges or surprise fees."
-//   },
-//   {
-//     question: "Can I get a custom quote for my digital marketing needs?",
-//     answer:
-//       "Yes, absolutely. We offer custom quotes tailored to your business goals, target market, and required services. You can contact us for a free consultation and personalized proposal."
-//   },
-//   {
-//     question: "How often do you revise your pricing plans?",
-//     answer:
-//       "Our pricing plans are periodically reviewed based on market trends, service enhancements, and evolving client needs. Existing clients are always informed in advance about any changes."
-//   },
-//   {
-//     question: "Do you offer discounts for long-term contracts?",
-//     answer:
-//       "Yes. We offer attractive discounts and customized pricing for long-term engagements and ongoing marketing partnerships."
-//   },
-//   {
-//     question: "What payment methods do you accept?",
-//     answer:
-//       "We accept major payment methods including credit/debit cards, bank transfers, and online payment gateways depending on your location."
-//   },
-//   {
-//     question: "Is there a minimum contract duration for your services?",
-//     answer:
-//       "Some services may require a minimum commitment to deliver measurable results, especially SEO-related services. However, we also offer flexible plans depending on the service scope."
-//   }
-// ];
-
-// function PricingHero() {
-//   return (
-//     <section className="bg-[#265E52] text-white py-12 text-center">
-//       <h1 className="text-4xl font-bold">Pricing</h1>
-//     </section>
-//   );
-// }
-
-// /* ---------- POPULAR PRICING ---------- */
-
-// function PopularPricing() {
-//   return (
-//     <section className="py-20">
-//       <div className="max-w-7xl mx-auto px-6 text-center">
-//         <h2 className="text-3xl font-bold mb-14">
-//           Our Popular Pricing Packages
-//         </h2>
-
-//         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-//           <PricingCard
-//             popular
-//             title="Website Design"
-//             oldPrice="$1,800"
-//             price="$1,500"
-//             period="One Time"
-//             button="Explore Plans"
-//             features={["Up to 5 pages", "Expert UI/UX", "Dedicated Manager"]}
-//           />
-
-//           <PricingCard
-//             popular
-//             title="SEO"
-//             oldPrice="$2,500"
-//             price="$2,000"
-//             period="Per Month"
-//             button="Explore Plans"
-//             features={["20 Keywords", "Technical SEO", "Competitor Analysis"]}
-//           />
-
-//           <PricingCard
-//             title="Ads"
-//             price="15%"
-//             suffix="of Ad Budget"
-//             button="Explore Plans"
-//             features={["Unlimited Ads", "Pixel Setup", "Tracking"]}
-//           />
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
-
-// /* ---------- WEBSITE PACKAGES ---------- */
-
-// function WebsitePricing() {
-//   return (
-//     <section className="py-20 bg-[#D6ECFF]">
-//       <div className="max-w-7xl mx-auto px-6 text-center">
-//         <h2 className="text-3xl font-bold mb-12">
-//           Website Pricing Packages
-//         </h2>
-
-//         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-//           <WebsiteCard
-//             title="Starter Website"
-//             oldPrice="$1,800"
-//             price="$1,500"
-//             features={["Up to 5 pages", "UI/UX Design"]}
-//           />
-
-//           <WebsiteCard
-//             popular
-//             title="Standard Website"
-//             oldPrice="$3,500"
-//             price="$3,000"
-//             features={["Business Website", "Conversion Focused"]}
-//           />
-
-//           <WebsiteCard
-//             title="Advanced Website"
-//             oldPrice="$5,400"
-//             price="$5,000"
-//             features={["Up to 10 pages", "Advanced UX"]}
-//           />
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
-
-// /* ---------- SEO TABLE ---------- */
-
-// function SEOPricingTable() {
-//   return (
-//     <section className="bg-white py-20">
-//   <div className="max-w-7xl mx-auto px-6">
-
-//     {/* HEADER */}
-//     <div className="text-center mb-16">
-//       <h2 className="text-3xl md:text-4xl font-bold mb-2">
-//         Our SEO Ads Pricing Packages
-//       </h2>
-//       <p className="text-sm text-gray-600">
-//         Boost Your Business on Any Budget
-//       </p>
-//     </div>
-
-//     {/* PRICING CARDS */}
-//     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-14">
-
-//       {/* STARTER */}
-//       <div className="bg-gray-50 rounded-2xl p-8 text-center shadow">
-//         <h3 className="text-xl font-semibold mb-3">Starter</h3>
-//         <p className="line-through text-gray-400">$300</p>
-//         <p className="text-4xl font-bold">$249</p>
-//         <p className="text-sm text-gray-600 mb-6">Per Month</p>
-
-//         <button className="w-full bg-[#1f8f72] text-white py-2 rounded-md font-medium">
-//           Get Started
-//         </button>
-//       </div>
-
-//       {/* STANDARD */}
-//       <div className="relative rounded-2xl p-8 text-center shadow bg-gradient-to-b from-[#E7B66A] to-[#45C4A0]">
-//         <span className="absolute top-4 right-4 bg-white text-xs px-3 py-1 rounded-full font-semibold">
-//           Popular
-//         </span>
-
-//         <h3 className="text-xl font-semibold mb-3">Standard</h3>
-//         <p className="line-through opacity-70">$500</p>
-//         <p className="text-4xl font-bold">$449</p>
-//         <p className="text-sm mb-6">Per Month</p>
-
-//         <button className="w-full bg-white text-black py-2 rounded-md font-medium">
-//           Get Started
-//         </button>
-//       </div>
-
-//       {/* PREMIUM */}
-//       <div className="bg-gray-50 rounded-2xl p-8 text-center shadow">
-//         <h3 className="text-xl font-semibold mb-3">Premium</h3>
-//         <p className="line-through text-gray-400">25%</p>
-//         <p className="text-4xl font-bold">15%</p>
-//         <p className="text-sm text-gray-600 mb-6">of Ad Budget</p>
-
-//         <button className="w-full bg-[#1f8f72] text-white py-2 rounded-md font-medium">
-//           Get Started
-//         </button>
-//       </div>
-//     </div>
-
-//     {/* FEATURES TABLE */}
-//     <div className="overflow-x-auto">
-//       <table className="w-full border border-gray-200 text-sm">
-//         <tbody>
-
-//           {[
-//             ["Account Setup", "✔", "✔", "✔"],
-//             ["Campaign Setup", "1", "2", "Unlimited"],
-//             ["Landing Page", "❌", "❌", "✔"],
-//             ["Budget", "Up to $1,500", "Up to $2,500", "Over $2,500"],
-//             ["Competitor Analysis", "✔", "✔", "✔"],
-//             ["Conversion Tracking", "Using GTM Tracking", "Using GTM Tracking", "Using GTM Tracking"],
-//             ["Google Analytics Setup", "✔", "✔", "✔"],
-//             ["Reporting", "Monthly", "Monthly", "Monthly"],
-//             ["Locations", "1 Location", "2 Locations", "Unlimited"],
-//             ["Goals", 
-//               "Drive Traffic & Leads", 
-//               "Drive Traffic & Leads", 
-//               "Drive Traffic & Leads"
-//             ],
-//           ].map((row, i) => (
-//             <tr key={i} className={i % 2 === 0 ? "bg-gray-50" : ""}>
-//               <td className="p-4 font-medium">{row[0]}</td>
-//               <td className="p-4 text-center">{row[1]}</td>
-//               <td className="p-4 text-center">{row[2]}</td>
-//               <td className="p-4 text-center">{row[3]}</td>
-//             </tr>
-//           ))}
-
-//         </tbody>
-//       </table>
-//     </div>
-
-//   </div>
-// </section>
-//   );
-// }
-
-// /* ---------- META ADS ---------- */
-
-// function MetaAdsPricing() {
-//   return (
-//     <section className="bg-white py-20">
-//   <div className="max-w-7xl mx-auto px-6">
-
-//     {/* HEADER */}
-//     <div className="text-center mb-16">
-//       <h2 className="text-3xl md:text-4xl font-bold mb-2">
-//         Our Google Ads Pricing Packages
-//       </h2>
-//       <p className="text-sm text-gray-600">
-//         Boost Your Business on Any Budget
-//       </p>
-//     </div>
-
-//     {/* PRICING CARDS */}
-//     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-14">
-
-//       {/* STARTER */}
-//       <div className="bg-gray-50 rounded-2xl p-8 text-center shadow">
-//         <h3 className="text-xl font-semibold mb-3">Starter</h3>
-//         <p className="line-through text-gray-400">$300</p>
-//         <p className="text-4xl font-bold">$249</p>
-//         <p className="text-sm text-gray-600 mb-6">Per Month</p>
-
-//         <button className="w-full bg-[#1f8f72] text-white py-2 rounded-md font-medium">
-//           Get Started
-//         </button>
-//       </div>
-
-//       {/* STANDARD */}
-//       <div className="relative rounded-2xl p-8 text-center shadow bg-gradient-to-b from-[#E7B66A] to-[#45C4A0]">
-//         <span className="absolute top-4 right-4 bg-white text-xs px-3 py-1 rounded-full font-semibold">
-//           Popular
-//         </span>
-
-//         <h3 className="text-xl font-semibold mb-3">Standard</h3>
-//         <p className="line-through opacity-70">$500</p>
-//         <p className="text-4xl font-bold">$449</p>
-//         <p className="text-sm mb-6">Per Month</p>
-
-//         <button className="w-full bg-white text-black py-2 rounded-md font-medium">
-//           Get Started
-//         </button>
-//       </div>
-
-//       {/* PREMIUM */}
-//       <div className="bg-gray-50 rounded-2xl p-8 text-center shadow">
-//         <h3 className="text-xl font-semibold mb-3">Premium</h3>
-//         <p className="line-through text-gray-400">25%</p>
-//         <p className="text-4xl font-bold">15%</p>
-//         <p className="text-sm text-gray-600 mb-6">of Ad Budget</p>
-
-//         <button className="w-full bg-[#1f8f72] text-white py-2 rounded-md font-medium">
-//           Get Started
-//         </button>
-//       </div>
-//     </div>
-
-//     {/* FEATURES TABLE */}
-//     <div className="overflow-x-auto">
-//       <table className="w-full border border-gray-200 text-sm">
-//         <tbody>
-
-//           {[
-//             ["Account Setup", "✔", "✔", "✔"],
-//             ["Campaign Setup", "1", "2", "Unlimited"],
-//             ["Landing Page", "❌", "❌", "✔"],
-//             ["Budget", "Up to $1,500", "Up to $2,500", "Over $2,500"],
-//             ["Competitor Analysis", "✔", "✔", "✔"],
-//             ["Conversion Tracking", "Using GTM Tracking", "Using GTM Tracking", "Using GTM Tracking"],
-//             ["Google Analytics Setup", "✔", "✔", "✔"],
-//             ["Reporting", "Monthly", "Monthly", "Monthly"],
-//             ["Locations", "1 Location", "2 Locations", "Unlimited"],
-//             ["Goals", 
-//               "Drive Traffic & Leads", 
-//               "Drive Traffic & Leads", 
-//               "Drive Traffic & Leads"
-//             ],
-//           ].map((row, i) => (
-//             <tr key={i} className={i % 2 === 0 ? "bg-gray-50" : ""}>
-//               <td className="p-4 font-medium">{row[0]}</td>
-//               <td className="p-4 text-center">{row[1]}</td>
-//               <td className="p-4 text-center">{row[2]}</td>
-//               <td className="p-4 text-center">{row[3]}</td>
-//             </tr>
-//           ))}
-
-//         </tbody>
-//       </table>
-//     </div>
-
-//   </div>
-// </section>
-//   );
-// }
-
-// /* ---------- GOOGLE ADS ---------- */
-
-// function GoogleAdsPricing() {
-//   return (
-//     <section className="bg-white py-20">
-//   <div className="max-w-7xl mx-auto px-6">
-
-//     {/* HEADER */}
-//     <div className="text-center mb-16">
-//       <h2 className="text-3xl md:text-4xl font-bold mb-2">
-//         Our Meta Ads Pricing Packages
-//       </h2>
-//       <p className="text-sm text-gray-600">
-//         Boost Your Business on Any Budget
-//       </p>
-//     </div>
-
-//     {/* PRICING CARDS */}
-//     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-14">
-
-//       {/* STARTER */}
-//       <div className="bg-gray-50 rounded-2xl p-8 text-center shadow">
-//         <h3 className="text-xl font-semibold mb-3">Starter</h3>
-//         <p className="line-through text-gray-400">$300</p>
-//         <p className="text-4xl font-bold">$249</p>
-//         <p className="text-sm text-gray-600 mb-6">Per Month</p>
-
-//         <button className="w-full bg-[#1f8f72] text-white py-2 rounded-md font-medium">
-//           Get Started
-//         </button>
-//       </div>
-
-//       {/* STANDARD */}
-//       <div className="relative rounded-2xl p-8 text-center shadow bg-gradient-to-b from-[#E7B66A] to-[#45C4A0]">
-//         <span className="absolute top-4 right-4 bg-white text-xs px-3 py-1 rounded-full font-semibold">
-//           Popular
-//         </span>
-
-//         <h3 className="text-xl font-semibold mb-3">Standard</h3>
-//         <p className="line-through opacity-70">$500</p>
-//         <p className="text-4xl font-bold">$449</p>
-//         <p className="text-sm mb-6">Per Month</p>
-
-//         <button className="w-full bg-white text-black py-2 rounded-md font-medium">
-//           Get Started
-//         </button>
-//       </div>
-
-//       {/* PREMIUM */}
-//       <div className="bg-gray-50 rounded-2xl p-8 text-center shadow">
-//         <h3 className="text-xl font-semibold mb-3">Premium</h3>
-//         <p className="line-through text-gray-400">25%</p>
-//         <p className="text-4xl font-bold">15%</p>
-//         <p className="text-sm text-gray-600 mb-6">of Ad Budget</p>
-
-//         <button className="w-full bg-[#1f8f72] text-white py-2 rounded-md font-medium">
-//           Get Started
-//         </button>
-//       </div>
-//     </div>
-
-//     {/* FEATURES TABLE */}
-//     <div className="overflow-x-auto">
-//       <table className="w-full border border-gray-200 text-sm">
-//         <tbody>
-
-//           {[
-//             ["Account Setup", "✔", "✔", "✔"],
-//             ["Campaign Setup", "1", "2", "Unlimited"],
-//             ["Landing Page", "❌", "❌", "✔"],
-//             ["Budget", "Up to $1,500", "Up to $2,500", "Over $2,500"],
-//             ["Competitor Analysis", "✔", "✔", "✔"],
-//             ["Conversion Tracking", "Using GTM Tracking", "Using GTM Tracking", "Using GTM Tracking"],
-//             ["Google Analytics Setup", "✔", "✔", "✔"],
-//             ["Reporting", "Monthly", "Monthly", "Monthly"],
-//             ["Locations", "1 Location", "2 Locations", "Unlimited"],
-//             ["Goals", 
-//               "Drive Traffic & Leads", 
-//               "Drive Traffic & Leads", 
-//               "Drive Traffic & Leads"
-//             ],
-//           ].map((row, i) => (
-//             <tr key={i} className={i % 2 === 0 ? "bg-gray-50" : ""}>
-//               <td className="p-4 font-medium">{row[0]}</td>
-//               <td className="p-4 text-center">{row[1]}</td>
-//               <td className="p-4 text-center">{row[2]}</td>
-//               <td className="p-4 text-center">{row[3]}</td>
-//             </tr>
-//           ))}
-
-//         </tbody>
-//       </table>
-//     </div>
-
-//   </div>
-// </section>
-//   );
-// }
-
-// /* ---------- FAQ ---------- */
-
-// function SEOFAQ() {
-//   const [activeIndex, setActiveIndex] = useState<number | null>(0);
-
-//   const toggle = (index: number) => {
-//     setActiveIndex(activeIndex === index ? null : index);
-//   };
-
-//   return (
-//     <section className="bg-white py-24">
-//       <div className="max-w-5xl mx-auto px-6">
-//         {/* HEADER */}
-//         <p className="text-sm font-medium text-[#1E8E73] mb-2">
-//           Have any questions?
-//         </p>
-
-//         <h2 className="text-3xl font-bold mb-10">
-//           Explore our FAQ&apos;s below.
-//         </h2>
-
-//         {/* FAQ LIST */}
-//         <div className="space-y-4">
-//           {faqs.map((faq, index) => (
-//             <div
-//               key={index}
-//               className="border-b border-gray-200 pb-4"
-//             >
-//               {/* QUESTION */}
-//               <button
-//                 onClick={() => toggle(index)}
-//                 className="w-full flex justify-between items-center text-left font-medium text-gray-900 py-3"
-//               >
-//                 <span>{faq.question}</span>
-
-//                 {activeIndex === index ? (
-//                   <MinusIcon className="w-5 h-5 text-[#1E8E73]" />
-//                 ) : (
-//                   <PlusIcon className="w-5 h-5 text-gray-500" />
-//                 )}
-//               </button>
-
-//               {/* ANSWER */}
-//               {activeIndex === index && (
-//                 <p className="text-sm text-gray-600 leading-relaxed mt-2">
-//                   {faq.answer}
-//                 </p>
-//               )}
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
-// /* ======================================================
-//    REUSABLE UI COMPONENTS (INSIDE SAME FILE)
-// ====================================================== */
-
-// function PricingCard({ popular, title, oldPrice, price, period, suffix, button, features }: any) {
-//   return (
-//     <div className="relative bg-white rounded-xl p-8 shadow text-left">
-//       {popular && <Badge />}
-//       <h3 className="text-xl font-semibold">{title}</h3>
-//       {oldPrice && <p className="line-through text-gray-400">{oldPrice}</p>}
-//       <p className="text-3xl font-bold">{price}</p>
-//       {period && <p className="text-sm">{period}</p>}
-//       {suffix && <p className="text-sm">{suffix}</p>}
-
-//       <Link href="/contact" className="block mt-4 bg-[#265E52] text-white py-2 text-center rounded">
-//         {button}
-//       </Link>
-
-//       <ul className="mt-4 text-sm space-y-1">
-//         {features.map((f: string, i: number) => (
-//           <li key={i}>✔ {f}</li>
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// }
-
-// function WebsiteCard({ popular, title, oldPrice, price, features }: any) {
-//   return (
-//     <PricingCard
-//       popular={popular}
-//       title={title}
-//       oldPrice={oldPrice}
-//       price={price}
-//       button="Get Started"
-//       features={features}
-//     />
-//   );
-// }
-
-// function SimpleCard({ title, price, popular }: any) {
-//   return (
-//     <div className={`p-8 rounded-xl shadow ${popular ? "bg-[#265E52] text-white" : "bg-gray-100"}`}>
-//       {popular && <Badge />}
-//       <h3 className="text-xl font-semibold">{title}</h3>
-//       <p className="text-3xl font-bold">{price}</p>
-//       <Link href="/contact" className="block mt-4 bg-black text-white py-2 rounded">
-//         Get Started
-//       </Link>
-//     </div>
-//   );
-// }
-
-// function Badge() {
-//   return (
-//     <span className="absolute top-4 right-4 bg-[#265E52] text-white text-xs px-3 py-1 rounded-full">
-//       Popular
-//     </span>
-//   );
-// }
-
-// function PlanHead({ title, price, popular }: any) {
-//   return (
-//     <th className={`p-4 ${popular ? "bg-[#45C4A0]" : "bg-gray-50"}`}>
-//       <p className="font-semibold">{title}</p>
-//       <p className="font-bold">{price}</p>
-//     </th>
-//   );
-// }
-
-// function Row({ label, values }: any) {
-//   return (
-//     <tr>
-//       <td className="p-4 font-medium">{label}</td>
-//       {values.map((v: string, i: number) => (
-//         <td key={i} className="p-4 text-center">{v}</td>
-//       ))}
-//     </tr>
-//   );
-// }
-
-// function IconRow({ label, checks }: any) {
-//   return (
-//     <tr>
-//       <td className="p-4 font-medium">{label}</td>
-//       {checks.map((c: boolean, i: number) => (
-//         <td key={i} className="p-4 text-center">{c ? "✅" : "❌"}</td>
-//       ))}
-//     </tr>
-//   );
-// }
-
-// function FAQItem({ question, answer }: any) {
-//   const [open, setOpen] = useState(false);
-
-//   return (
-//     <div className="border-b py-6" onClick={() => setOpen(!open)}>
-//       <div className="flex justify-between">
-//         <h4 className="font-medium">{question}</h4>
-//         <span>{open ? "−" : "+"}</span>
-//       </div>
-//       {open && <p className="mt-4 text-gray-600">{answer}</p>}
-//     </div>
-//   );
-// }
-
-
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import { PlusIcon, MinusIcon } from "@heroicons/react/24/outline";
+import { useEffect } from "react";
+import Reveal from "@/components/Reveal";
+
+// ==================== GRADIENT COLORS ====================
+const GRADIENTS = {
+  primary: "from-[#ff2f92] via-[#00f0ff] to-[#3b82f6]",
+  heading: "from-[#ff2f92] to-[#2D96EB]",
+  cta: "from-[#F028C2] to-[#2D96EB]",
+};
 
 /* ======================================================
     PAGE
 ====================================================== */
-
 export default function PricingPage() {
+  useEffect(() => {
+    // SEO: Update document title and meta description
+    document.title = "Zentrix Digital Marketing | Pricing Packages";
+    const meta = document.querySelector('meta[name="description"]');
+    if (meta) {
+      meta.setAttribute(
+        "content",
+        "Explore Zentrix's pricing packages for website design, SEO, and ads management. Transparent rates, custom plans, and maximum business value."
+      );
+    }
+  }, []);
+
   return (
     <>
       <PricingHero />
       <PopularPricing />
       <WebsitePricing />
-      <SEOPricingTable />
-      <MetaAdsPricing />
-      <GoogleAdsPricing />
-      <SEOFAQ />
+      <SEOPricing />
+      <AdsPricing />
+      <MetaAdsDetailed/>
+      <GoogleAdsDetailed/>
+      <PricingFAQ />
+      {/* <FAQSchema /> */}
     </>
   );
 }
@@ -644,386 +46,739 @@ export default function PricingPage() {
     SECTIONS
 ====================================================== */
 
-const faqs = [
-  {
-    question: "What factors influence the pricing of NShine Digital Marketing services?",
-    answer: "Our pricing is determined by several factors, including the scope of services required, project complexity, industry competitiveness, and your specific business goals. We customize our pricing packages to ensure you receive maximum value based on your needs."
-  },
-  {
-    question: "Are there any hidden fees in your pricing?",
-    answer: "No. We believe in complete transparency. All costs are clearly outlined before the project begins, and there are no hidden charges or surprise fees."
-  },
-  {
-    question: "Can I get a custom quote for my digital marketing needs?",
-    answer: "Yes, absolutely. We offer custom quotes tailored to your business goals, target market, and required services. You can contact us for a free consultation and personalized proposal."
-  },
-  {
-    question: "How often do you revise your pricing plans?",
-    answer: "Our pricing plans are periodically reviewed based on market trends, service enhancements, and evolving client needs. Existing clients are always informed in advance about any changes."
-  },
-  {
-    question: "Do you offer discounts for long-term contracts?",
-    answer: "Yes. We offer attractive discounts and customized pricing for long-term engagements and ongoing marketing partnerships."
-  },
-  {
-    question: "What payment methods do you accept?",
-    answer: "We accept major payment methods including credit/debit cards, bank transfers, and online payment gateways depending on your location."
-  },
-  {
-    question: "Is there a minimum contract duration for your services?",
-    answer: "Some services may require a minimum commitment to deliver measurable results, especially SEO-related services. However, we also offer flexible plans depending on the service scope."
-  }
-];
-
 function PricingHero() {
   return (
-    <section className="bg-gradient-to-r from-[#F028C2] to-[#2D96EB] text-white py-6 text-center shadow-md">
-      <h1 className="text-3xl font-bold">Pricing</h1>
-    </section>
+    <section className="py-6 bg-gradient-to-r from-[#ff2f92] via-[#00f0ff] to-[#3b82f6] text-white text-center shadow-md">
+  <Reveal>
+    <h1 className="text-3xl md:text-4xl font-bold">
+      Pricing
+    </h1>
+  </Reveal>
+</section>
+
   );
 }
 
 /* ---------- POPULAR PRICING ---------- */
-
 function PopularPricing() {
+  const plans = [
+    {
+      title: "Website Design",
+      old: "$1,800",
+      price: "$1,500",
+      unit: "One Time",
+      features: [
+        "Up to 5 Pages Website",
+        "3 Dedicated Service Pages",
+        "Expert UX Design",
+        "$100 per Additional Page",
+        "Free Consultation",
+        "Mobile Responsive",
+        "Basic SEO Setup",
+        "Fast Delivery",
+      ],
+      cta: "Get Started",
+      popular: true,
+    },
+    {
+      title: "SEO",
+      old: "$2,500",
+      price: "$2,000",
+      unit: "Per Month",
+      features: [
+        "Nationwide Targeting",
+        "20 Keywords Research",
+        "6 Pages Optimized",
+        "2 Blog Posts",
+        "Competitor Analysis",
+        "Technical SEO Audit",
+        "AI SEO Channels",
+        "AI Content Distribution",
+      ],
+      cta: "Start SEO",
+      popular: false,
+    },
+    {
+      title: "Ads Management",
+      old: "25%",
+      price: "15%",
+      unit: "of Ad Budget",
+      features: [
+        "Complete Ad Setup",
+        "Unlimited Ad Runs",
+        "Competitor Research",
+        "GTM Tracking",
+        "Unlimited Locations",
+        "Daily Monitoring",
+        "Conversion Optimization",
+        "Monthly Reports",
+      ],
+      cta: "Launch Ads",
+      popular: false,
+    },
+  ];
+
   return (
-    <section className="py-20">
-      <div className="max-w-7xl mx-auto px-6 text-center">
-        <h2 className="text-3xl font-bold mb-14">
-          Our Popular Pricing Packages
-        </h2>
+    <section className="py-12 bg-gradient-to-br from-[#f9fbff] via-[#eef6ff] to-[#fdf2ff] relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 relative">
+        <Reveal>
+          <h2 className="text-4xl md:text-5xl font-bold text-center text-black">
+            Popular{" "}
+            <span
+              className={`bg-gradient-to-r ${GRADIENTS.heading} bg-clip-text text-transparent`}
+            >
+              Packages
+            </span>
+          </h2>
+          <p className="mt-4 text-center text-black/70">
+            Our most chosen marketing plans for business growth
+          </p>
+        </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <PricingCard
-            popular
-            title="Website Design"
-            oldPrice="$1,800"
-            price="$1,500"
-            period="One Time"
-            button="Explore Plans"
-            features={["Up to 5 pages", "Expert UI/UX", "Dedicated Manager"]}
-          />
+        <div className="grid md:grid-cols-3 gap-12 mt-20">
+          {plans.map((plan, i) => (
+            <Reveal key={i} delay={i * 120}>
+              <div className="pricing-card h-[640px] flex flex-col justify-between rounded-2xl bg-white border border-[#00f0ff]/30 hover:border-[#ff2f92] hover:shadow-2xl transition-all p-8 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-400">
+                <div className="text-center">
+                  {plan.popular && (
+                    <span className="inline-block mb-4 px-4 py-1 text-xs rounded-full bg-gradient-to-r from-[#ff2f92] to-[#2D96EB] text-white">
+                      Popular
+                    </span>
+                  )}
+                  <h3 className="text-xl font-bold">{plan.title}</h3>
 
-          <PricingCard
-            popular
-            title="SEO"
-            oldPrice="$2,500"
-            price="$2,000"
-            period="Per Month"
-            button="Explore Plans"
-            features={["20 Keywords", "Technical SEO", "Competitor Analysis"]}
-          />
+                  <p className="mt-4 text-black/40 line-through">{plan.old}</p>
+                  <p className="text-4xl font-extrabold bg-gradient-to-r from-[#ff2f92] to-[#2D96EB] bg-clip-text text-transparent">
+                    {plan.price}
+                  </p>
+                  <p className="text-sm text-black/60">{plan.unit}</p>
+                </div>
 
-          <PricingCard
-            title="Ads"
-            price="15%"
-            suffix="of Ad Budget"
-            button="Explore Plans"
-            features={["Unlimited Ads", "Pixel Setup", "Tracking"]}
-          />
-        </div>
-      </div>
-    </section>
-  );
-}
+                <ul className="mt-8 space-y-3 text-sm text-black/70 flex-1">
+                  {plan.features.map((f, j) => (
+                    <li key={j}>• {f}</li>
+                  ))}
+                </ul>
 
-/* ---------- WEBSITE PACKAGES ---------- */
-
-function WebsitePricing() {
-  return (
-    <section className="py-20 bg-[#EAF6FF]">
-      <div className="max-w-7xl mx-auto px-6 text-center">
-        <h2 className="text-3xl font-bold mb-12">
-          Website Pricing Packages
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <WebsiteCard
-            title="Starter Website"
-            oldPrice="$1,800"
-            price="$1,500"
-            features={["Up to 5 pages", "UI/UX Design"]}
-          />
-
-          <WebsiteCard
-            popular
-            title="Standard Website"
-            oldPrice="$3,500"
-            price="$3,000"
-            features={["Business Website", "Conversion Focused"]}
-          />
-
-          <WebsiteCard
-            title="Advanced Website"
-            oldPrice="$5,400"
-            price="$5,000"
-            features={["Up to 10 pages", "Advanced UX"]}
-          />
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ---------- SEO TABLE ---------- */
-
-function SEOPricingTable() {
-  return (
-    <section className="bg-white py-20">
-  <div className="max-w-7xl mx-auto px-6">
-
-    <div className="text-center mb-16">
-      <h2 className="text-3xl md:text-4xl font-bold mb-2">
-        Our SEO Ads Pricing Packages
-      </h2>
-      <p className="text-sm text-gray-600">
-        Boost Your Business on Any Budget
-      </p>
-    </div>
-
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-14">
-
-      <div className="bg-gray-50 rounded-2xl p-8 text-center shadow">
-        <h3 className="text-xl font-semibold mb-3">Starter</h3>
-        <p className="line-through text-gray-400">$300</p>
-        <p className="text-4xl font-bold text-[#F028C2]">$249</p>
-        <p className="text-sm text-gray-600 mb-6">Per Month</p>
-
-        <button className="w-full bg-[#2D96EB] text-white py-2 rounded-md font-medium hover:bg-[#F028C2] transition-colors">
-          Get Started
-        </button>
-      </div>
-
-      <div className="relative rounded-2xl p-8 text-center shadow bg-gradient-to-b from-[#F028C2] to-[#2D96EB] text-white">
-        <span className="absolute top-4 right-4 bg-white text-[#F028C2] text-xs px-3 py-1 rounded-full font-bold">
-          Popular
-        </span>
-
-        <h3 className="text-xl font-semibold mb-3">Standard</h3>
-        <p className="line-through opacity-70">$500</p>
-        <p className="text-4xl font-bold">$449</p>
-        <p className="text-sm mb-6">Per Month</p>
-
-        <button className="w-full bg-white text-[#F028C2] py-2 rounded-md font-bold hover:scale-105 transition-transform">
-          Get Started
-        </button>
-      </div>
-
-      <div className="bg-gray-50 rounded-2xl p-8 text-center shadow">
-        <h3 className="text-xl font-semibold mb-3">Premium</h3>
-        <p className="line-through text-gray-400">25%</p>
-        <p className="text-4xl font-bold text-[#2D96EB]">15%</p>
-        <p className="text-sm text-gray-600 mb-6">of Ad Budget</p>
-
-        <button className="w-full bg-[#2D96EB] text-white py-2 rounded-md font-medium hover:bg-[#F028C2] transition-colors">
-          Get Started
-        </button>
-      </div>
-    </div>
-
-    <div className="overflow-x-auto">
-      <table className="w-full border border-gray-200 text-sm">
-        <tbody>
-          {[
-            ["Account Setup", "✔", "✔", "✔"],
-            ["Campaign Setup", "1", "2", "Unlimited"],
-            ["Landing Page", "❌", "❌", "✔"],
-            ["Budget", "Up to $1,500", "Up to $2,500", "Over $2,500"],
-            ["Competitor Analysis", "✔", "✔", "✔"],
-            ["Conversion Tracking", "Using GTM Tracking", "Using GTM Tracking", "Using GTM Tracking"],
-            ["Google Analytics Setup", "✔", "✔", "✔"],
-            ["Reporting", "Monthly", "Monthly", "Monthly"],
-            ["Locations", "1 Location", "2 Locations", "Unlimited"],
-            ["Goals", "Drive Traffic & Leads", "Drive Traffic & Leads", "Drive Traffic & Leads"],
-          ].map((row, i) => (
-            <tr key={i} className={i % 2 === 0 ? "bg-[#EAF6FF]/30" : ""}>
-              <td className="p-4 font-medium">{row[0]}</td>
-              <td className="p-4 text-center">{row[1]}</td>
-              <td className="p-4 text-center font-bold text-[#F028C2]">{row[2]}</td>
-              <td className="p-4 text-center">{row[3]}</td>
-            </tr>
+                <Link
+                  href="/contact"
+                  className={`block text-center py-3 rounded-lg font-semibold text-white bg-gradient-to-r ${GRADIENTS.cta} hover:scale-105 transition`}
+                >
+                  {plan.cta}
+                </Link>
+              </div>
+            </Reveal>
           ))}
-        </tbody>
-      </table>
-    </div>
-
-  </div>
-</section>
+        </div>
+      </div>
+    </section>
   );
 }
 
-/* ---------- META ADS ---------- */
+/* ---------- WEBSITE PRICING ---------- */
+function WebsitePricing() {
+  const plans = [
+    {
+      title: "Starter Website",
+      old: "$1,800",
+      price: "$1,500",
+      unit: "One Time",
+      features: [
+        "Up to 5 pages – Home, About, Services, Contact & Privacy Policy",
+        "3 Dedicated Service Pages",
+        "Expert UI/UX Design",
+        "$100 per Additional Page",
+        "Mobile Responsive Design",
+        "Basic SEO Setup",
+      ],
+      popular: false,
+    },
+    {
+      popular: true,
+      title: "Standard Website",
+      old: "$3,500",
+      price: "$3,000",
+      unit: "One Time",
+      features: [
+        "Up to 5 pages – Home, About, Services, Contact & Privacy Policy",
+        "5 Dedicated Service Pages",
+        "Conversion-Focused UX Design",
+        "$100 per Additional Page",
+        "Mobile Responsive Design",
+        "On-Page SEO Optimization",
+      ],
+    },
+    {
+      title: "Advanced Website",
+      old: "$5,400",
+      price: "$5,000",
+      unit: "One Time",
+      features: [
+        "Up to 10 pages – Including Bookings",
+        "10 Dedicated Service Pages as per your needs",
+        "High-Performance UX Design for Conversions",
+        "$100 per Additional Page",
+        "Advanced SEO Structure",
+        "Speed & Performance Optimization",
+      ],
+      popular: false,
+    },
+  ];
 
-function MetaAdsPricing() {
   return (
-    <section className="bg-white py-20">
-  <div className="max-w-7xl mx-auto px-6">
-    <div className="text-center mb-16">
-      <h2 className="text-3xl md:text-4xl font-bold mb-2">
-        Our Google Ads Pricing Packages
-      </h2>
-      <p className="text-sm text-gray-600">
-        Boost Your Business on Any Budget
-      </p>
-    </div>
+    <section className="py-12 bg-white from-[#f9fbff] via-[#eef6ff] to-[#fdf2ff]">
+      <div className="max-w-7xl mx-auto px-6 text-center">
 
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-14">
-      <div className="bg-gray-50 rounded-2xl p-8 text-center shadow border-t-4 border-[#2D96EB]">
-        <h3 className="text-xl font-semibold mb-3">Starter</h3>
-        <p className="line-through text-gray-400">$300</p>
-        <p className="text-4xl font-bold text-[#2D96EB]">$249</p>
-        <p className="text-sm text-gray-600 mb-6">Per Month</p>
-        <button className="w-full bg-[#2D96EB] text-white py-2 rounded-md font-medium">Get Started</button>
-      </div>
+        {/* ---------- HEADER ---------- */}
+        <Reveal>
+          <h2 className="text-4xl md:text-5xl font-bold">
+            Our{" "}
+            <span className="bg-gradient-to-r from-[#ff2f92] to-[#2D96EB] bg-clip-text text-transparent">
+              Website Pricing Packages
+            </span>
+          </h2>
+          <p className="mt-4 text-lg text-black/70 max-w-3xl mx-auto">
+            Boost your online presence with our website pricing packages
+            designed for growth, performance, and results.
+          </p>
+        </Reveal>
 
-      <div className="relative rounded-2xl p-8 text-center shadow bg-gradient-to-b from-[#F028C2] to-[#2D96EB] text-white">
-        <h3 className="text-xl font-semibold mb-3">Standard</h3>
-        <p className="line-through opacity-70">$500</p>
-        <p className="text-4xl font-bold">$449</p>
-        <p className="text-sm mb-6">Per Month</p>
-        <button className="w-full bg-white text-black py-2 rounded-md font-medium">Get Started</button>
-      </div>
+        {/* ---------- PRICING CARDS ---------- */}
+        <div className="grid md:grid-cols-3 gap-12 mt-20">
+          {plans.map((plan, i) => (
+            <Reveal key={i} delay={i * 120}>
+              <div
+                className={`relative pricing-card flex flex-col justify-between
+                rounded-2xl bg-white border border-[#00f0ff]/30
+                hover:-translate-y-2 hover:border-[#ff2f92]
+                hover:shadow-2xl transition-all duration-300 p-8 h-[520px]`}
+              >
+                {plan.popular && (
+                  <span className="absolute top-4 right-4
+                    bg-gradient-to-r from-[#ff2f92] to-[#2D96EB]
+                    text-white text-xs uppercase font-bold px-3 py-1 rounded-full">
+                    Popular
+                  </span>
+                )}
 
-      <div className="bg-gray-50 rounded-2xl p-8 text-center shadow border-t-4 border-[#F028C2]">
-        <h3 className="text-xl font-semibold mb-3">Premium</h3>
-        <p className="line-through text-gray-400">25%</p>
-        <p className="text-4xl font-bold text-[#F028C2]">15%</p>
-        <p className="text-sm text-gray-600 mb-6">of Ad Budget</p>
-        <button className="w-full bg-[#F028C2] text-white py-2 rounded-md font-medium">Get Started</button>
+                <div>
+                  <h3 className="text-xl font-bold">{plan.title}</h3>
+
+                  <p className="mt-3 text-black/40 line-through">{plan.old}</p>
+                  <p className="text-4xl font-extrabold
+                    bg-gradient-to-r from-[#ff2f92] to-[#2D96EB]
+                    bg-clip-text text-transparent">
+                    {plan.price}
+                  </p>
+                  <p className="text-sm text-black/60">{plan.unit}</p>
+
+                  <ul className="mt-6 space-y-2 text-sm text-black/70">
+                    {plan.features.map((f, j) => (
+                      <li key={j}>• {f}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <Link
+                  href="/contact"
+                  className="mt-6 block py-3 rounded-lg font-semibold text-white
+                    bg-gradient-to-r from-[#ff2f92] to-[#00f0ff]
+                    hover:scale-105 transition-transform text-center"
+                >
+                  Get Started
+                </Link>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
   );
 }
 
-/* ---------- GOOGLE ADS ---------- */
 
-function GoogleAdsPricing() {
+/* ---------- SEO + ADS PRICING ---------- */
+function SEOPricing() {
+  const plans = [
+    { title: "Starter", price: "$249", unit: "Per Month", popular: false },
+    { title: "Standard", price: "$449", unit: "Per Month", popular: true },
+    { title: "Premium", price: "15%", unit: "of Ad Budget", popular: false },
+  ];
+
   return (
-    <section className="bg-white py-20">
-  <div className="max-w-7xl mx-auto px-6 text-center">
-      <h2 className="text-3xl md:text-4xl font-bold mb-12">
-        Our Meta Ads Pricing Packages
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="p-8 bg-gray-50 rounded-xl shadow">
-             <h3 className="text-xl font-bold mb-4">Starter</h3>
-             <p className="text-4xl font-bold text-[#2D96EB] mb-6">$249</p>
-             <button className="px-6 py-2 bg-[#2D96EB] text-white rounded-md">Get Started</button>
-          </div>
-          <div className="p-8 bg-gradient-to-r from-[#F028C2] to-[#2D96EB] text-white rounded-xl shadow scale-105">
-             <h3 className="text-xl font-bold mb-4">Standard</h3>
-             <p className="text-4xl font-bold mb-6">$449</p>
-             <button className="px-6 py-2 bg-white text-[#F028C2] font-bold rounded-md">Get Started</button>
-          </div>
-          <div className="p-8 bg-gray-50 rounded-xl shadow">
-             <h3 className="text-xl font-bold mb-4">Premium</h3>
-             <p className="text-4xl font-bold text-[#F028C2] mb-6">15%</p>
-             <button className="px-6 py-2 bg-[#F028C2] text-white rounded-md">Get Started</button>
-          </div>
+    <section className="py-12 bg-gradient-to-br from-[#f9fbff] via-[#eef6ff] to-[#fdf2ff] relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6">
+
+        {/* HEADER */}
+        <Reveal>
+          <h2 className="text-4xl md:text-5xl font-bold text-center">
+            SEO &{" "}
+            <span className="bg-gradient-to-r from-[#ff2f92] to-[#2D96EB] bg-clip-text text-transparent">
+              Ads Pricing
+            </span>
+          </h2>
+          <p className="mt-4 text-center text-black/70 text-lg">
+            Scalable SEO & paid marketing plans built for growth
+          </p>
+        </Reveal>
+
+        {/* CARDS */}
+        <div className="grid md:grid-cols-3 gap-10 mt-20">
+          {plans.map((plan, i) => (
+            <Reveal key={i} delay={i * 120}>
+              <div
+                className={`relative p-8 rounded-2xl text-center
+                ${plan.popular
+                  ? "bg-gradient-to-r from-[#ff2f92] to-[#2D96EB] text-white scale-105 shadow-2xl"
+                  : "bg-white border border-[#00f0ff]/30 hover:border-[#ff2f92] hover:-translate-y-2 hover:shadow-2xl"}
+                transition-all duration-300`}
+              >
+                {plan.popular && (
+                  <span className="absolute top-4 right-4 bg-white text-[#ff2f92]
+                    text-xs px-3 py-1 rounded-full font-bold">
+                    Popular
+                  </span>
+                )}
+
+                <h3 className="text-xl font-bold mb-4">{plan.title}</h3>
+                <p className={`text-4xl font-extrabold ${plan.popular ? "" : "bg-gradient-to-r from-[#ff2f92] to-[#2D96EB] bg-clip-text text-transparent"}`}>
+                  {plan.price}
+                </p>
+                <p className={`text-sm mt-1 ${plan.popular ? "opacity-90" : "text-black/60"}`}>
+                  {plan.unit}
+                </p>
+
+                <Link
+                  href="/contact"
+                  className={`mt-8 block w-full py-3 rounded-lg font-semibold
+                  ${plan.popular
+                    ? "bg-white text-[#ff2f92]"
+                    : "text-white bg-gradient-to-r from-[#ff2f92] to-[#00f0ff]"}
+                  hover:scale-105 transition-transform`}
+                >
+                  Get Started
+                </Link>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </div>
-  </div>
-</section>
+    </section>
   );
 }
 
-/* ---------- FAQ ---------- */
-
-function SEOFAQ() {
-  const [activeIndex, setActiveIndex] = useState<number | null>(0);
-
-  const toggle = (index: number) => {
-    setActiveIndex(activeIndex === index ? null : index);
-  };
+/* ---------- ADS PRICING ---------- */
+function AdsPricing() {
+  const plans = [
+    { title: "Starter", price: "$249", unit: "Per Month", popular: false },
+    { title: "Standard", price: "$449", unit: "Per Month", popular: true },
+    { title: "Premium", price: "15%", unit: "of Ad Budget", popular: false },
+  ];
 
   return (
-    <section className="bg-white py-24">
+    <section className="py-12 bg-white">
+      <div className="max-w-7xl mx-auto px-6">
+
+        {/* HEADER */}
+        <Reveal>
+          <h2 className="text-4xl md:text-5xl font-bold text-center">
+            Ads Management{" "}
+            <span className="bg-gradient-to-r from-[#ff2f92] to-[#2D96EB] bg-clip-text text-transparent">
+              Packages
+            </span>
+          </h2>
+          <p className="mt-4 text-center text-black/70 text-lg">
+            High-performance paid ad management built to scale
+          </p>
+        </Reveal>
+
+        {/* CARDS */}
+        <div className="grid md:grid-cols-3 gap-10 mt-20">
+          {plans.map((plan, i) => (
+            <Reveal key={i} delay={i * 120}>
+              <div
+                className={`relative p-8 rounded-2xl text-center
+                ${plan.popular
+                  ? "bg-gradient-to-r from-[#ff2f92] to-[#2D96EB] text-white scale-105 shadow-2xl"
+                  : "bg-gray-50 border border-[#00f0ff]/30 hover:border-[#ff2f92] hover:-translate-y-2 hover:shadow-2xl"}
+                transition-all duration-300`}
+              >
+                {plan.popular && (
+                  <span className="absolute top-4 right-4 bg-white text-[#ff2f92]
+                    text-xs px-3 py-1 rounded-full font-bold">
+                    Popular
+                  </span>
+                )}
+
+                <h3 className="text-xl font-bold mb-4">{plan.title}</h3>
+                <p className={`text-4xl font-extrabold ${plan.popular ? "" : "bg-gradient-to-r from-[#ff2f92] to-[#2D96EB] bg-clip-text text-transparent"}`}>
+                  {plan.price}
+                </p>
+                <p className={`text-sm mt-1 ${plan.popular ? "opacity-90" : "text-black/60"}`}>
+                  {plan.unit}
+                </p>
+
+                <Link
+                  href="/contact"
+                  className={`mt-8 block w-full py-3 rounded-lg font-semibold
+                  ${plan.popular
+                    ? "bg-white text-[#ff2f92]"
+                    : "text-white bg-gradient-to-r from-[#ff2f92] to-[#00f0ff]"}
+                  hover:scale-105 transition-transform`}
+                >
+                  Get Started
+                </Link>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+/* ================= ZENTRIX PRICING FAQ ================= */
+function PricingFAQ() {
+  const faqs = [
+    {
+      question: "What factors influence the pricing of Zentrix Digital Marketing services?",
+      answer: "Our pricing is determined by several factors, including the scope of services required, project complexity, industry competitiveness, and your specific business goals. We customize our pricing packages to ensure you receive maximum value based on your needs.",
+    },
+    {
+      question: "Are there any hidden fees in your pricing?",
+      answer: "No. We believe in complete transparency. All costs are clearly outlined before the project begins, and there are no hidden charges or surprise fees.",
+    },
+    {
+      question: "Can I get a custom quote for my digital marketing needs?",
+      answer: "Yes, absolutely. We offer custom quotes tailored to your business goals, target market, and required services. You can contact us for a free consultation and personalized proposal.",
+    },
+    {
+      question: "How often do you revise your pricing plans?",
+      answer: "Our pricing plans are periodically reviewed based on market trends, service enhancements, and evolving client needs. Existing clients are always informed in advance about any changes.",
+    },
+    {
+      question: "Do you offer discounts for long-term contracts?",
+      answer: "Yes. We offer attractive discounts and customized pricing for long-term engagements and ongoing marketing partnerships.",
+    },
+    {
+      question: "What payment methods do you accept?",
+      answer: "We accept major payment methods including credit/debit cards, bank transfers, and online payment gateways depending on your location.",
+    },
+    {
+      question: "Is there a minimum contract duration for your services?",
+      answer: "Some services may require a minimum commitment to deliver measurable results, especially SEO-related services. However, we also offer flexible plans depending on the service scope.",
+    },
+  ];
+
+  return (
+    <section className="py-10 bg-white">
       <div className="max-w-5xl mx-auto px-6">
-        <p className="text-sm font-bold text-[#F028C2] mb-2 uppercase tracking-widest">
-          Have any questions?
+        <h2 className="text-4xl md:text-5xl font-bold text-center">
+          Have Any{" "}
+          <span className="bg-gradient-to-r from-[#ff2f92] to-[#2D96EB] bg-clip-text text-transparent">
+            Questions?
+          </span>
+        </h2>
+        <p className="mt-4 text-lg text-center text-black/70 max-w-3xl mx-auto">
+          Explore our FAQ's below.
         </p>
 
-        <h2 className="text-3xl font-bold mb-10">
-          Explore our FAQ&apos;s below.
-        </h2>
-
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <div key={index} className="border-b border-gray-200 pb-4">
-              <button
-                onClick={() => toggle(index)}
-                className="w-full flex justify-between items-center text-left font-semibold text-gray-900 py-3"
-              >
-                <span>{faq.question}</span>
-                {activeIndex === index ? (
-                  <MinusIcon className="w-5 h-5 text-[#F028C2]" />
-                ) : (
-                  <PlusIcon className="w-5 h-5 text-[#2D96EB]" />
-                )}
-              </button>
-
-              {activeIndex === index && (
-                <p className="text-sm text-gray-600 leading-relaxed mt-2 animate-fadeIn">
-                  {faq.answer}
-                </p>
-              )}
-            </div>
+        <div className="mt-12 space-y-4">
+          {faqs.map((item, i) => (
+            <details key={i} className="group border border-black/10 rounded-lg p-4 cursor-pointer hover:shadow-md transition-all">
+              <summary className="flex justify-between items-center font-semibold text-black text-lg list-none">
+                {item.question}
+                <span className="ml-2 transition-transform duration-300 group-open:rotate-45">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#ff2f92]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                  </svg>
+                </span>
+              </summary>
+              <p className="mt-2 text-black/70 text-sm leading-relaxed">
+                {item.answer}
+              </p>
+            </details>
           ))}
         </div>
       </div>
     </section>
   );
 }
-
-/* ======================================================
-    REUSABLE UI COMPONENTS
-====================================================== */
-
-function PricingCard({ popular, title, oldPrice, price, period, suffix, button, features }: any) {
+/* ---------- META ADS DETAILED PRICING ---------- */
+function MetaAdsDetailed() {
   return (
-    <div className={`relative bg-white rounded-xl p-8 shadow-lg text-left transition-transform hover:scale-[1.02] border-t-4 ${popular ? 'border-[#F028C2]' : 'border-gray-100'}`}>
-      {popular && <Badge />}
-      <h3 className="text-xl font-bold text-gray-800">{title}</h3>
-      {oldPrice && <p className="line-through text-gray-400">{oldPrice}</p>}
-      <p className="text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[#F028C2] to-[#2D96EB]">
-        {price}
-      </p>
-      {period && <p className="text-sm font-medium text-gray-500">{period}</p>}
-      {suffix && <p className="text-sm font-medium text-gray-500">{suffix}</p>}
+    <section className="py-12 bg-gradient-to-br from-[#f9fbff] via-[#eef6ff] to-[#fdf2ff] relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6">
 
-      <Link href="/contact" className="block mt-6 bg-gradient-to-r from-[#F028C2] to-[#2D96EB] text-white py-3 text-center rounded-lg font-bold hover:shadow-[0_0_15px_rgba(240,40,194,0.4)] transition-all">
-        {button}
-      </Link>
+        {/* ---------- HEADER ---------- */}
+        <Reveal>
+          <h2 className="text-4xl md:text-5xl font-bold text-center">
+            Meta Ads{" "}
+            <span className="bg-gradient-to-r from-[#F028C2] to-[#2D96EB] bg-clip-text text-transparent">
+              Pricing Packages
+            </span>
+          </h2>
+          <p className="mt-4 text-center text-black/70 text-lg">
+            Boost your business with high-performance Meta advertising
+          </p>
+        </Reveal>
 
-      <ul className="mt-6 text-sm space-y-3">
-        {features.map((f: string, i: number) => (
-          <li key={i} className="flex items-center gap-2">
-            <span className="text-[#2D96EB]">✔</span> {f}
-          </li>
-        ))}
-      </ul>
-    </div>
+        {/* ---------- PRICING CARDS ---------- */}
+        <div className="grid md:grid-cols-3 gap-10 mt-20">
+
+          {/* ===== STARTER ===== */}
+          <Reveal delay={100}>
+            <div className="p-8 rounded-2xl bg-gray-50 border
+              hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+
+              <h3 className="text-xl font-bold text-center mb-4">Starter</h3>
+              <p className="text-center line-through text-black/40">$300</p>
+
+              <p className="text-4xl font-extrabold text-center text-[#2D96EB]">
+                $249
+              </p>
+
+              <p className="text-sm text-center text-black/60 mb-6">Per Month</p>
+
+              <Link
+                href="/contact"
+                className="block text-center px-6 py-3 rounded-lg font-semibold text-white
+                  bg-gradient-to-r from-[#2D96EB] to-[#F028C2]
+                  hover:scale-105 transition">
+                Get Started
+              </Link>
+            </div>
+          </Reveal>
+
+          {/* ===== STANDARD (POPULAR) ===== */}
+          <Reveal delay={200}>
+            <div className="relative p-8 rounded-2xl text-white scale-105
+              bg-gradient-to-r from-[#F028C2] to-[#2D96EB]
+              shadow-2xl transition-all duration-300">
+
+              <span className="absolute top-4 right-4 bg-white text-[#F028C2]
+                text-xs px-3 py-1 rounded-full font-bold">
+                Popular
+              </span>
+
+              <h3 className="text-xl font-bold text-center mb-4">Standard</h3>
+              <p className="text-center line-through opacity-70">$500</p>
+              <p className="text-4xl font-extrabold text-center">$449</p>
+              <p className="text-sm text-center opacity-90 mb-6">Per Month</p>
+
+              <Link
+                href="/contact"
+                className="block text-center px-6 py-3 rounded-lg font-semibold
+                  bg-white text-[#F028C2]
+                  hover:scale-105 transition">
+                Get Started
+              </Link>
+            </div>
+          </Reveal>
+
+          {/* ===== PREMIUM ===== */}
+          <Reveal delay={300}>
+            <div className="p-8 rounded-2xl bg-gray-50 border
+              hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+
+              <h3 className="text-xl font-bold text-center mb-4">Premium</h3>
+              <p className="text-center line-through text-black/40">25%</p>
+
+              <p className="text-4xl font-extrabold text-center text-[#F028C2]">
+                15%
+              </p>
+
+              <p className="text-sm text-center text-black/60 mb-6">
+                of Ad Budget
+              </p>
+
+              <Link
+                href="/contact"
+                className="block text-center px-6 py-3 rounded-lg font-semibold text-white
+                  bg-gradient-to-r from-[#F028C2] to-[#2D96EB]
+                  hover:scale-105 transition">
+                Get Started
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* ---------- FEATURES TABLE ---------- */}
+        <div className="overflow-x-auto mt-24">
+          <table className="w-full text-sm border rounded-xl overflow-hidden">
+            <tbody>
+              {[
+                ["FB Page Setup", "✔", "✔", "✔"],
+                ["Campaign Setup", "1", "2", "Unlimited"],
+                ["Landing Page", "❌", "❌", "✔"],
+                ["Budget", "Up to $1,500", "Up to $2,500", "Over $2,500"],
+                ["Location Targeting", "1 Location", "Up to 2 Locations", "Unlimited"],
+                ["Ad Creative Design", "Single Image", "Carousel", "Images + Videos"],
+                ["Conversion Tracking", "Meta Pixel", "Pixel + Analytics", "Pixel + Analytics"],
+                ["Free Flyers", "2 Included", "3 Included", "4 Included"],
+                ["Reporting & Analytics", "Monthly", "Monthly", "Monthly"],
+                ["Goals", "Traffic, Engagement & Calls", "Traffic, Engagement & Calls", "Traffic, Engagement & Calls"],
+              ].map((row, i) => (
+                <tr
+                  key={i}
+                  className={`transition ${
+                    i % 2 === 0 ? "bg-white" : "bg-gray-50"
+                  } hover:bg-[#f1f7ff]`}
+                >
+                  <td className="p-4 font-medium">{row[0]}</td>
+                  <td className="p-4 text-center">{row[1]}</td>
+                  <td className="p-4 text-center font-bold text-[#F028C2]">{row[2]}</td>
+                  <td className="p-4 text-center">{row[3]}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
   );
 }
 
-function WebsiteCard({ popular, title, oldPrice, price, features }: any) {
+
+function GoogleAdsDetailed() {
   return (
-    <PricingCard
-      popular={popular}
-      title={title}
-      oldPrice={oldPrice}
-      price={price}
-      button="Get Started"
-      features={features}
-    />
+    <section className="py-12 bg-white relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6">
+
+        {/* ---------- HEADER ---------- */}
+        <Reveal>
+          <h2 className="text-4xl md:text-5xl font-bold text-center">
+            Google Ads{" "}
+            <span className="bg-gradient-to-r from-[#F028C2] to-[#2D96EB] bg-clip-text text-transparent">
+              Pricing Packages
+            </span>
+          </h2>
+          <p className="mt-4 text-center text-black/70 text-lg">
+            Boost your business with high-intent Google advertising
+          </p>
+        </Reveal>
+
+        {/* ---------- PRICING CARDS ---------- */}
+        <div className="grid md:grid-cols-3 gap-10 mt-20">
+
+          {/* ===== STARTER ===== */}
+          <Reveal delay={100}>
+            <div className="p-8 rounded-2xl bg-gray-50 border
+              hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+
+              <h3 className="text-xl font-bold text-center mb-4">Starter</h3>
+              <p className="text-center line-through text-black/40">$300</p>
+
+              <p className="text-4xl font-extrabold text-center text-[#2D96EB]">
+                $249
+              </p>
+
+              <p className="text-sm text-center text-black/60 mb-6">Per Month</p>
+
+              <Link
+                href="/contact"
+                className="block text-center px-6 py-3 rounded-lg font-semibold text-white
+                  bg-gradient-to-r from-[#F028C2] to-[#2D96EB]
+                  hover:scale-105 transition"
+              >
+                Get Started
+              </Link>
+            </div>
+          </Reveal>
+
+          {/* ===== STANDARD (POPULAR) ===== */}
+          <Reveal delay={200}>
+            <div className="relative p-8 rounded-2xl text-white scale-105
+              bg-gradient-to-r from-[#F028C2] to-[#2D96EB]
+              shadow-2xl transition-all duration-300">
+
+              <span className="absolute top-4 right-4 bg-white text-[#F028C2]
+                text-xs px-3 py-1 rounded-full font-bold">
+                Popular
+              </span>
+
+              <h3 className="text-xl font-bold text-center mb-4">Standard</h3>
+              <p className="text-center line-through opacity-70">$500</p>
+              <p className="text-4xl font-extrabold text-center">$449</p>
+              <p className="text-sm text-center opacity-90 mb-6">Per Month</p>
+
+              <Link
+                href="/contact"
+                className="block text-center px-6 py-3 rounded-lg font-semibold
+                  bg-white text-[#F028C2]
+                  hover:scale-105 transition"
+              >
+                Get Started
+              </Link>
+            </div>
+          </Reveal>
+
+          {/* ===== PREMIUM ===== */}
+          <Reveal delay={300}>
+            <div className="p-8 rounded-2xl bg-gray-50 border
+              hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+
+              <h3 className="text-xl font-bold text-center mb-4">Premium</h3>
+              <p className="text-center line-through text-black/40">25%</p>
+
+              <p className="text-4xl font-extrabold text-center text-[#F028C2]">
+                15%
+              </p>
+
+              <p className="text-sm text-center text-black/60 mb-6">
+                of Ad Budget
+              </p>
+
+              <Link
+                href="/contact"
+                className="block text-center px-6 py-3 rounded-lg font-semibold text-white
+                  bg-gradient-to-r from-[#F028C2] to-[#2D96EB]
+                  hover:scale-105 transition"
+              >
+                Get Started
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* ---------- FEATURES TABLE ---------- */}
+        <div className="overflow-x-auto mt-24">
+          <table className="w-full text-sm border rounded-xl overflow-hidden">
+            <tbody>
+              {[
+                ["Account Setup", "✔", "✔", "✔"],
+                ["Campaign Setup", "1", "2", "Unlimited"],
+                ["Landing Page", "❌", "❌", "✔"],
+                ["Budget", "Up to $1,500", "Up to $2,500", "Over $2,500"],
+                ["Competitor Analysis", "✔", "✔", "✔"],
+                ["Conversion Tracking", "Using GTM", "Using GTM", "Using GTM"],
+                ["Google Analytics Setup", "✔", "✔", "✔"],
+                ["Reporting", "Monthly", "Monthly", "Monthly"],
+                ["Locations", "1 Location", "2 Locations", "Unlimited"],
+                ["Goals", "Qualified Traffic & Leads", "Qualified Traffic & Leads", "Qualified Traffic & Leads"],
+              ].map((row, i) => (
+                <tr
+                  key={i}
+                  className={`transition ${
+                    i % 2 === 0 ? "bg-white" : "bg-gray-50"
+                  } hover:bg-[#f1f7ff]`}
+                >
+                  <td className="p-4 font-medium">{row[0]}</td>
+                  <td className="p-4 text-center">{row[1]}</td>
+                  <td className="p-4 text-center font-bold text-[#F028C2]">
+                    {row[2]}
+                  </td>
+                  <td className="p-4 text-center">{row[3]}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
   );
 }
 
-function Badge() {
-  return (
-    <span className="absolute top-4 right-4 bg-gradient-to-r from-[#F028C2] to-[#2D96EB] text-white text-[10px] uppercase font-bold px-3 py-1 rounded-full">
-      Popular
-    </span>
-  );
-}
