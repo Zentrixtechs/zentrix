@@ -1,7 +1,6 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
-export default <script>
 function setupMagicCursor() {
   const cursor = document.getElementById("nav-magic-cursor");
   const links = document.querySelectorAll(".nav-link");
@@ -30,4 +29,11 @@ function setupMagicCursor() {
     });
   });
 }
-</script>
+
+export default function MagicCursor() {
+  useEffect(() => {
+    setupMagicCursor();
+  }, []);
+
+  return null;
+}
