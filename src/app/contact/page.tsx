@@ -32,9 +32,26 @@ function CountUp({ end }: { end: number }) {
 }
 
 export default function ContactPage() {
-  const [loading, setLoading] = useState(false);
+  // ================= STATE MANAGEMENT =================
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    website: "",
+    service: "",
+    message: "",
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     // TODO: Replace with actual form submission API logic
@@ -43,7 +60,6 @@ export default function ContactPage() {
 
   return (
     <>
-      {/* ================= SEO META ================= */}
       <Head>
         <title>
           Contact Zentrix Tech | SEO, Digital Marketing, Ads & Web Development
@@ -121,10 +137,7 @@ export default function ContactPage() {
           {/* LEFT CONTENT */}
           <article>
             <Reveal>
-              <h1
-                id="contact-heading"
-                className="text-4xl md:text-5xl font-bold leading-tight"
-              >
+              <h1 id="contact-heading" className="text-4xl md:text-5xl font-bold leading-tight">
                 Get in Touch With <br />
                 <span className="bg-gradient-to-r from-[#ff2f92] to-[#2D96EB] bg-clip-text text-transparent">
                   Our Digital Marketing Experts
@@ -165,8 +178,6 @@ export default function ContactPage() {
           <Reveal delay={250}>
             <form
               className="glass rounded-3xl p-10 space-y-5 border border-white/10 shadow-xl"
-              method="post"
-              aria-label="Contact form"
               onSubmit={handleSubmit}
             >
               <h2 className="text-2xl font-bold mb-2 text-center">
@@ -175,6 +186,8 @@ export default function ContactPage() {
 
               <input
                 name="name"
+                value={formData.name}
+                onChange={handleChange}
                 required
                 placeholder="Full Name *"
                 className="form-input"
@@ -182,6 +195,8 @@ export default function ContactPage() {
               <input
                 type="email"
                 name="email"
+                value={formData.email}
+                onChange={handleChange}
                 required
                 placeholder="Email Address *"
                 className="form-input"
@@ -189,29 +204,37 @@ export default function ContactPage() {
               <input
                 type="tel"
                 name="phone"
+                value={formData.phone}
+                onChange={handleChange}
                 required
                 placeholder="Phone Number *"
                 className="form-input"
               />
               <input
                 name="website"
+                value={formData.website}
+                onChange={handleChange}
                 placeholder="Website URL (Optional)"
                 className="form-input"
               />
               <select
                 name="service"
+                value={formData.service}
+                onChange={handleChange}
                 required
                 className="form-input custom-select"
               >
                 <option value="">Select Service</option>
-                <option>Digital Marketing</option>
-                <option>SEO</option>
-                <option>Google Ads</option>
-                <option>Web Development</option>
-                <option>Branding & Design</option>
+                <option value="Digital Marketing">Digital Marketing</option>
+                <option value="SEO">SEO</option>
+                <option value="Google Ads">Google Ads</option>
+                <option value="Web Development">Web Development</option>
+                <option value="Branding & Design">Branding & Design</option>
               </select>
               <textarea
                 name="message"
+                value={formData.message}
+                onChange={handleChange}
                 placeholder="Tell us about your project"
                 className="form-input h-28 resize-none"
               />
@@ -221,10 +244,16 @@ export default function ContactPage() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full py-3 rounded-xl bg-gradient-to-r from-[#ff2f92] to-[#2D96EB] font-semibold disabled:opacity-60"
+                className="w-full py-3 rounded-xl bg-gradient-to-r from-[#ff2f92] to-[#2D96EB] font-semibold hover:scale-[1.02] transition-transform disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 {loading ? "Submitting..." : "Submit →"}
               </button>
+
+              {success && (
+                <p className="text-green-400 font-bold text-center animate-pulse">
+                  ✓ Success! We will contact you shortly.
+                </p>
+              )}
             </form>
           </Reveal>
         </div>
@@ -234,6 +263,7 @@ export default function ContactPage() {
           .glass {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
           }
           .form-input {
             width: 100%;
@@ -267,15 +297,11 @@ export default function ContactPage() {
           }
           .custom-select {
             appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            background:
+            background: 
               linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02)),
               url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M7 10l5 5 5-5'/%3E%3C/svg%3E")
                 no-repeat right 16px center;
             background-size: 16px;
-            padding-right: 48px;
-            cursor: pointer;
           }
           .custom-select option {
             background: #020617;
