@@ -37,49 +37,78 @@ export default function ContactPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    // TODO: Add your form submission logic here (API call)
-    setTimeout(() => setLoading(false), 1500); // Mock submission delay
+    // TODO: Replace with actual form submission API logic
+    setTimeout(() => setLoading(false), 1500);
   };
 
   return (
     <>
       {/* ================= SEO META ================= */}
       <Head>
-        <title>Contact Digital Marketing Experts | SEO, Ads & Growth Strategy</title>
+        <title>
+          Contact Zentrix Tech | SEO, Digital Marketing, Ads & Web Development
+        </title>
         <meta
           name="description"
-          content="Get in touch with our digital marketing experts for SEO, Google Ads, web development, and branding. Proven growth strategies that deliver real results."
+          content="Reach Zentrix Tech to grow your business with SEO, Google Ads, Meta Ads, branding, and high-converting websites. Get a free consultation today!"
         />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://yourdomain.com/contact" />
+        <link rel="canonical" href="https://zentrix-tech.com/contact" />
 
-        {/* Structured Data */}
+        {/* ===== Open Graph / Social Sharing ===== */}
+        <meta property="og:title" content="Contact Zentrix Tech – Grow Your Business Online" />
+        <meta property="og:description" content="Full-stack digital marketing services including SEO, Google & Meta Ads, branding, and web development. Free growth audit available." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://zentrix-tech.com/contact" />
+        <meta property="og:image" content="https://zentrix-tech.com/lo.png" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contact Zentrix Tech – Grow Your Business Online" />
+        <meta name="twitter:description" content="Full-stack digital marketing services including SEO, Google & Meta Ads, branding, and web development. Free growth audit available." />
+        <meta name="twitter:image" content="https://zentrix-tech.com/lo.png" />
+
+        {/* ===== Structured Data JSON-LD ===== */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              name: "Your Agency Name",
-              url: "https://yourdomain.com",
-              contactPoint: {
-                "@type": "ContactPoint",
-                telephone: "+91-XXXXXXXXXX",
-                contactType: "customer service",
-              },
-              address: {
+              "name": "Zentrix Tech",
+              "image": "https://zentrix-tech.com/lo.png",
+              "url": "https://zentrix-tech.com",
+              "telephone": "+91-XXXXXXXXXX",
+              "address": {
                 "@type": "PostalAddress",
-                addressCountry: "IN",
+                "streetAddress": "123 Marketing St",
+                "addressLocality": "Hyderabad",
+                "addressRegion": "Telangana",
+                "postalCode": "500001",
+                "addressCountry": "IN"
               },
-              sameAs: [
-                "https://www.linkedin.com/company/yourcompany",
-                "https://www.instagram.com/yourcompany",
+              "openingHours": "Mo,Tu,We,Th,Fr 09:00-18:00",
+              "sameAs": [
+                "https://www.linkedin.com/company/zentrix-tech",
+                "https://www.instagram.com/zentrix-tech"
               ],
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+91-XXXXXXXXXX",
+                "contactType": "customer support",
+                "areaServed": "IN",
+                "availableLanguage": ["English"]
+              },
+              "potentialAction": {
+                "@type": "ContactAction",
+                "target": "https://zentrix-tech.com/contact",
+                "name": "Request a free consultation"
+              }
             }),
           }}
         />
       </Head>
 
+      {/* ================= CONTACT SECTION ================= */}
       <section
         className="py-18 md:py-12 bg-gradient-to-br from-[#0f172a] via-[#020617] to-black text-white relative overflow-hidden"
         aria-labelledby="contact-heading"
@@ -89,7 +118,6 @@ export default function ContactPage() {
         <div className="absolute top-1/2 -right-40 w-[500px] h-[500px] bg-[#00f0ff]/30 rounded-full blur-3xl" />
 
         <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
-
           {/* LEFT CONTENT */}
           <article>
             <Reveal>
@@ -106,7 +134,7 @@ export default function ContactPage() {
 
             <Reveal delay={150}>
               <p className="mt-6 text-white/70 max-w-xl">
-                Full‑stack digital marketing services to boost search visibility, capture quality leads, and scale revenue. Harness the power of SEO, Google & Meta ads, strategic content, high‑converting websites, and expert brand building
+                Full‑stack digital marketing services to boost search visibility, capture quality leads, and scale revenue. Harness the power of SEO, Google & Meta ads, strategic content, high‑converting websites, and expert brand building.
               </p>
             </Reveal>
 
@@ -144,47 +172,35 @@ export default function ContactPage() {
               <h2 className="text-2xl font-bold mb-2 text-center">
                 Get a Free Growth Audit
               </h2>
-              <p></p>
 
-              <label className="sr-only">Full Name</label>
               <input
                 name="name"
                 required
-                aria-required="true"
                 placeholder="Full Name *"
                 className="form-input"
               />
-
-              <label className="sr-only">Email Address</label>
               <input
                 type="email"
                 name="email"
                 required
-                aria-required="true"
                 placeholder="Email Address *"
                 className="form-input"
               />
-
-              <label className="sr-only">Phone Number</label>
               <input
                 type="tel"
                 name="phone"
                 required
-                aria-required="true"
                 placeholder="Phone Number *"
                 className="form-input"
               />
-
               <input
                 name="website"
                 placeholder="Website URL (Optional)"
                 className="form-input"
               />
-
               <select
                 name="service"
                 required
-                aria-label="Select Service"
                 className="form-input custom-select"
               >
                 <option value="">Select Service</option>
@@ -194,18 +210,14 @@ export default function ContactPage() {
                 <option>Web Development</option>
                 <option>Branding & Design</option>
               </select>
-
               <textarea
                 name="message"
                 placeholder="Tell us about your project"
                 className="form-input h-28 resize-none"
               />
-
-              {/* Trust Text */}
               <p className="text-xs text-white/60 text-center">
                 🔒 We respect your privacy. No spam. No sales pressure.
               </p>
-
               <button
                 type="submit"
                 disabled={loading}
@@ -217,13 +229,12 @@ export default function ContactPage() {
           </Reveal>
         </div>
 
-        {/* STYLES */}
+        {/* ===== STYLES ===== */}
         <style jsx>{`
           .glass {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(25px);
           }
-
           .form-input {
             width: 100%;
             padding: 14px;
@@ -232,26 +243,21 @@ export default function ContactPage() {
             border: 1px solid rgba(255, 255, 255, 0.15);
             color: white;
           }
-
           .form-input::placeholder {
             color: rgba(255, 255, 255, 0.6);
           }
-
           .form-input:focus {
             border-color: #00f0ff;
             outline: none;
           }
-
           .stat-card {
             height: 150px;
             padding: 24px;
           }
-
           .stat-number {
             height: 48px;
             margin-bottom: 8px;
           }
-
           .sr-only {
             position: absolute;
             width: 1px;
@@ -259,8 +265,6 @@ export default function ContactPage() {
             overflow: hidden;
             clip: rect(0, 0, 0, 0);
           }
-
-          /* ===== SELECT FIX ===== */
           .custom-select {
             appearance: none;
             -webkit-appearance: none;
@@ -273,17 +277,14 @@ export default function ContactPage() {
             padding-right: 48px;
             cursor: pointer;
           }
-
           .custom-select option {
             background: #020617;
             color: white;
           }
-
           .custom-select:focus {
             border-color: #ff2f92;
             box-shadow: 0 0 0 1px rgba(255,47,146,0.6);
           }
-
           @media (max-width: 640px) {
             .stat-card {
               height: auto;
