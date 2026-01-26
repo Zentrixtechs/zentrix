@@ -54,39 +54,8 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-<<<<<<< HEAD
-    setSuccess(false);
-
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      if (!res.ok) throw new Error("Request failed");
-
-      setSuccess(true);
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        website: "",
-        service: "",
-        message: "",
-      });
-      
-      // Clear success message after 5 seconds
-      setTimeout(() => setSuccess(false), 5000);
-    } catch (err) {
-      alert("Something went wrong. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-=======
     // TODO: Replace with actual form submission API logic
     setTimeout(() => setLoading(false), 1500);
->>>>>>> zen-004
   };
 
   return (
@@ -97,9 +66,6 @@ export default function ContactPage() {
         </title>
         <meta
           name="description"
-<<<<<<< HEAD
-          content="Get in touch with our digital marketing experts for SEO, Google Ads, web development, and branding."
-=======
           content="Reach Zentrix Tech to grow your business with SEO, Google Ads, Meta Ads, branding, and high-converting websites. Get a free consultation today!"
         />
         <meta name="robots" content="index, follow" />
@@ -155,7 +121,6 @@ export default function ContactPage() {
               }
             }),
           }}
->>>>>>> zen-004
         />
       </Head>
 
@@ -182,11 +147,7 @@ export default function ContactPage() {
 
             <Reveal delay={150}>
               <p className="mt-6 text-white/70 max-w-xl">
-<<<<<<< HEAD
-                Full‑stack digital marketing services to boost search visibility, capture quality leads, and scale revenue.
-=======
                 Full‑stack digital marketing services to boost search visibility, capture quality leads, and scale revenue. Harness the power of SEO, Google & Meta ads, strategic content, high‑converting websites, and expert brand building.
->>>>>>> zen-004
               </p>
             </Reveal>
 
@@ -231,10 +192,6 @@ export default function ContactPage() {
                 placeholder="Full Name *"
                 className="form-input"
               />
-<<<<<<< HEAD
-
-=======
->>>>>>> zen-004
               <input
                 type="email"
                 name="email"
@@ -244,10 +201,6 @@ export default function ContactPage() {
                 placeholder="Email Address *"
                 className="form-input"
               />
-<<<<<<< HEAD
-
-=======
->>>>>>> zen-004
               <input
                 type="tel"
                 name="phone"
@@ -285,13 +238,9 @@ export default function ContactPage() {
                 placeholder="Tell us about your project"
                 className="form-input h-28 resize-none"
               />
-<<<<<<< HEAD
-
-=======
               <p className="text-xs text-white/60 text-center">
                 🔒 We respect your privacy. No spam. No sales pressure.
               </p>
->>>>>>> zen-004
               <button
                 type="submit"
                 disabled={loading}
@@ -309,10 +258,7 @@ export default function ContactPage() {
           </Reveal>
         </div>
 
-<<<<<<< HEAD
-=======
         {/* ===== STYLES ===== */}
->>>>>>> zen-004
         <style jsx>{`
           .glass {
             background: rgba(255, 255, 255, 0.05);
@@ -326,13 +272,9 @@ export default function ContactPage() {
             background: rgba(255, 255, 255, 0.06);
             border: 1px solid rgba(255, 255, 255, 0.15);
             color: white;
-<<<<<<< HEAD
-            transition: border-color 0.3s ease;
-=======
           }
           .form-input::placeholder {
             color: rgba(255, 255, 255, 0.6);
->>>>>>> zen-004
           }
           .form-input:focus {
             border-color: #00f0ff;
@@ -342,9 +284,6 @@ export default function ContactPage() {
             height: 150px;
             padding: 24px;
           }
-<<<<<<< HEAD
-
-=======
           .stat-number {
             height: 48px;
             margin-bottom: 8px;
@@ -356,7 +295,6 @@ export default function ContactPage() {
             overflow: hidden;
             clip: rect(0, 0, 0, 0);
           }
->>>>>>> zen-004
           .custom-select {
             appearance: none;
             background: 
@@ -369,8 +307,6 @@ export default function ContactPage() {
             background: #020617;
             color: white;
           }
-<<<<<<< HEAD
-=======
           .custom-select:focus {
             border-color: #ff2f92;
             box-shadow: 0 0 0 1px rgba(255,47,146,0.6);
@@ -381,7 +317,6 @@ export default function ContactPage() {
               padding: 20px;
             }
           }
->>>>>>> zen-004
         `}</style>
       </section>
     </>
