@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect } from "react";
+import Head from "next/head";
 import Reveal from "@/components/Reveal";
 
 // ==================== GRADIENT COLORS ====================
@@ -16,19 +17,176 @@ const GRADIENTS = {
 ====================================================== */
 export default function PricingPage() {
   useEffect(() => {
-    // SEO: Update document title and meta description
+    // Fallback SEO update for older crawlers
     document.title = "Zentrix Digital Marketing | Pricing Packages";
     const meta = document.querySelector('meta[name="description"]');
     if (meta) {
       meta.setAttribute(
         "content",
-        "Explore Zentrix's pricing packages for website design, SEO, and ads management. Transparent rates, custom plans, and maximum business value."
+        "Explore Zentrix Digital Marketing pricing packages for website design, SEO, and Ads Management. Transparent rates, custom plans, and maximum business value."
       );
     }
   }, []);
 
   return (
     <>
+      {/* ================= SEO META ================= */}
+      <Head>
+        <title>Zentrix Digital Marketing | Pricing Packages</title>
+        <meta
+          name="description"
+          content="Explore Zentrix Digital Marketing pricing packages for website design, SEO, and Ads Management. Transparent rates, custom plans, and maximum business value."
+        />
+        <link rel="canonical" href="https://zentrix-tech.com/pricing" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="Zentrix Digital Marketing | Pricing Packages" />
+        <meta property="og:description" content="Discover Zentrix Digital Marketing's pricing packages for websites, SEO, and Ads Management. Tailored plans for business growth." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://zentrix-tech.com/pricing" />
+        <meta property="og:image" content="https://zentrix-tech.com/lo.png" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Zentrix Digital Marketing | Pricing Packages" />
+        <meta name="twitter:description" content="Explore our pricing packages for web, SEO, and Ads Management services. Transparent and flexible plans for your business growth." />
+        <meta name="twitter:image" content="https://zentrix-tech.com/lo.png" />
+
+        <script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+
+        /* ================= ORGANIZATION ================= */
+        {
+          "@type": "Organization",
+          "@id": "https://zentrix-tech.com/#organization",
+          "name": "Zentrix Digital Marketing",
+          "url": "https://zentrix-tech.com",
+          "logo": "https://zentrix-tech.com/lo.png",
+          "sameAs": [
+            "https://www.facebook.com/",
+            "https://www.instagram.com/",
+            "https://www.linkedin.com/"
+          ]
+        },
+        /* ================= WEBPAGE ================= */
+        {
+          "@type": "WebPage",
+          "@id": "https://zentrix-tech.com/pricing#webpage",
+          "url": "https://zentrix-tech.com/pricing",
+          "name": "Digital Marketing Pricing Packages | Zentrix",
+          "description":
+            "Explore Zentrix Digital Marketing pricing packages for website design, SEO services, Google Ads and Meta Ads management. Transparent pricing with no hidden costs.",
+          "isPartOf": {
+            "@id": "https://zentrix-tech.com/#organization"
+          }
+        },
+
+        /* ================= SERVICE ================= */
+        {
+          "@type": "Service",
+          "name": "Digital Marketing Services",
+          "provider": {
+            "@id": "https://zentrix-tech.com/#organization"
+          },
+          "areaServed": "Worldwide",
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Digital Marketing Pricing",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "name": "Website Design Package",
+                "price": "1500",
+                "priceCurrency": "USD"
+              },
+              {
+                "@type": "Offer",
+                "name": "SEO Management Package",
+                "price": "249",
+                "priceCurrency": "USD"
+              },
+              {
+                "@type": "Offer",
+                "name": "Ads Management Package",
+                "price": "15%",
+                "priceCurrency": "USD"
+              }
+            ]
+          }
+        },
+        {
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://zentrix-tech.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Pricing",
+      "item": "https://zentrix-tech.com/pricing"
+    }
+  ]
+}
+
+      ]
+    }),
+  }}
+/>
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What factors influence the pricing of Zentrix Digital Marketing services?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pricing depends on service scope, business goals, competition level, and required customization. Zentrix offers flexible pricing based on your needs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are there any hidden fees in your pricing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Zentrix Digital Marketing follows 100% transparent pricing with no hidden costs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer custom digital marketing packages?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We provide custom pricing packages based on your goals, industry, and budget."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a minimum contract period?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Some services like SEO require a minimum duration to show results, while others are flexible."
+          }
+        }
+      ]
+    }),
+  }}
+/>
+
+      </Head>
+
+      {/* ================= PAGE SECTIONS ================= */}
       <PricingHero />
       <PopularPricing />
       <WebsitePricing />
@@ -36,26 +194,117 @@ export default function PricingPage() {
       <AdsPricing />
       <MetaAdsDetailed/>
       <GoogleAdsDetailed/>
+      {/* ================== PRICING RESOURCES ================== */}
+<section className="py-24 bg-gradient-to-br from-[#f9fbff] via-[#eef6ff] to-[#fdf2ff] relative overflow-hidden">
+  
+  {/* Background blobs */}
+  <div className="absolute inset-0 pointer-events-none">
+    <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-[#ff2f92]/10 rounded-full blur-3xl" />
+    <div className="absolute bottom-0 -right-40 w-[500px] h-[500px] bg-[#00f0ff]/10 rounded-full blur-3xl" />
+  </div>
+
+  <div className="max-w-7xl mx-auto px-6 relative">
+    
+    {/* Header */}
+    <Reveal>
+      <h2 className="text-4xl md:text-5xl font-bold text-center text-black">
+        Pricing{" "}
+        <span className="bg-gradient-to-r from-[#ff2f92] to-[#2D96EB] bg-clip-text text-transparent">
+          Guides & Comparisons
+        </span>
+      </h2>
+
+      <p className="mt-6 max-w-3xl mx-auto text-center text-black/70 text-base md:text-lg">
+        Explore in-depth pricing guides, SEO cost breakdowns, and ad platform
+        comparisons to confidently choose the right marketing plan.
+      </p>
+    </Reveal>
+
+    {/* Cards */}
+    <div className="grid md:grid-cols-3 gap-10 mt-20">
+
+      {/* Card 1 */}
+      <Reveal delay={100}>
+        <Link
+          href="/digital-marketing-pricing-india"
+          className="group block h-full rounded-2xl border border-[#00f0ff]/30 bg-white p-8 hover:border-[#ff2f92] hover:shadow-2xl transition-all"
+        >
+          <h3 className="text-2xl font-semibold mb-3 text-black group-hover:text-[#2D96EB] transition">
+            Digital Marketing Pricing in India
+          </h3>
+          <p className="text-black/70 text-base leading-relaxed mb-6">
+            A complete guide to monthly digital marketing costs, packages, and
+            pricing trends for Indian businesses.
+          </p>
+
+          <span className="inline-flex items-center gap-1 text-[#2D96EB] font-medium">
+            Read Guide
+            <span className="transition group-hover:translate-x-1">→</span>
+          </span>
+        </Link>
+      </Reveal>
+
+      {/* Card 2 */}
+      <Reveal delay={200}>
+        <Link
+          href="/seo-pricing-india"
+          className="group block h-full rounded-2xl border border-[#00f0ff]/30 bg-white p-8 hover:border-[#ff2f92] hover:shadow-2xl transition-all"
+        >
+          <h3 className="text-2xl font-semibold mb-3 text-black group-hover:text-[#2D96EB] transition">
+            SEO Pricing in India
+          </h3>
+          <p className="text-black/70 text-base leading-relaxed mb-6">
+            Understand SEO monthly costs, local vs enterprise pricing, and what
+            deliverables matter for long-term rankings.
+          </p>
+
+          <span className="inline-flex items-center gap-1 text-[#2D96EB] font-medium">
+            View SEO Costs
+            <span className="transition group-hover:translate-x-1">→</span>
+          </span>
+        </Link>
+      </Reveal>
+
+      {/* Card 3 */}
+      <Reveal delay={300}>
+        <Link
+          href="/google-ads-vs-meta-ads-cost"
+          className="group block h-full rounded-2xl border border-[#00f0ff]/30 bg-white p-8 hover:border-[#ff2f92] hover:shadow-2xl transition-all"
+        >
+          <h3 className="text-2xl font-semibold mb-3 text-black group-hover:text-[#2D96EB] transition">
+            Google Ads vs Meta Ads Cost
+          </h3>
+          <p className="text-black/70 text-base leading-relaxed mb-6">
+            Compare Google Ads and Meta Ads pricing, CPCs, and ROI to decide
+            which platform fits your growth goals.
+          </p>
+
+          <span className="inline-flex items-center gap-1 text-[#2D96EB] font-medium">
+            Compare Platforms
+            <span className="transition group-hover:translate-x-1">→</span>
+          </span>
+        </Link>
+      </Reveal>
+
+    </div>
+  </div>
+</section>
+
       <PricingFAQ />
-      {/* <FAQSchema /> */}
     </>
   );
 }
 
-/* ======================================================
-    SECTIONS
-====================================================== */
-
+/* ================== HERO ================== */
 function PricingHero() {
   return (
     <section className="py-6 bg-gradient-to-r from-[#ff2f92] via-[#00f0ff] to-[#3b82f6] text-white text-center shadow-md">
-  <Reveal>
-    <h1 className="text-3xl md:text-4xl font-bold">
-      Pricing
-    </h1>
-  </Reveal>
-</section>
-
+      <Reveal>
+<h1 className="text-3xl md:text-4xl font-bold">
+  Digital Marketing Pricing Packages
+</h1>
+      </Reveal>
+    </section>
   );
 }
 
@@ -162,6 +411,7 @@ function PopularPricing() {
 
                 <Link
                   href="/contact"
+                    aria-label="Contact Zentrix Digital Marketing for pricing"
                   className={`block text-center py-3 rounded-lg font-semibold text-white bg-gradient-to-r ${GRADIENTS.cta} hover:scale-105 transition`}
                 >
                   {plan.cta}
@@ -281,6 +531,7 @@ function WebsitePricing() {
 
                 <Link
                   href="/contact"
+                    aria-label="Contact Zentrix Digital Marketing for pricing"
                   className="mt-6 block py-3 rounded-lg font-semibold text-white
                     bg-gradient-to-r from-[#ff2f92] to-[#00f0ff]
                     hover:scale-105 transition-transform text-center"
@@ -350,6 +601,7 @@ function SEOPricing() {
 
                 <Link
                   href="/contact"
+                    aria-label="Contact Zentrix Digital Marketing for pricing"
                   className={`mt-8 block w-full py-3 rounded-lg font-semibold
                   ${plan.popular
                     ? "bg-white text-[#ff2f92]"
@@ -420,6 +672,7 @@ function AdsPricing() {
 
                 <Link
                   href="/contact"
+                    aria-label="Contact Zentrix Digital Marketing for pricing"
                   className={`mt-8 block w-full py-3 rounded-lg font-semibold
                   ${plan.popular
                     ? "bg-white text-[#ff2f92]"
@@ -543,6 +796,7 @@ function MetaAdsDetailed() {
 
               <Link
                 href="/contact"
+                  aria-label="Contact Zentrix Digital Marketing for pricing"
                 className="block text-center px-6 py-3 rounded-lg font-semibold text-white
                   bg-gradient-to-r from-[#2D96EB] to-[#F028C2]
                   hover:scale-105 transition">
@@ -569,6 +823,7 @@ function MetaAdsDetailed() {
 
               <Link
                 href="/contact"
+                  aria-label="Contact Zentrix Digital Marketing for pricing"
                 className="block text-center px-6 py-3 rounded-lg font-semibold
                   bg-white text-[#F028C2]
                   hover:scale-105 transition">
@@ -595,6 +850,7 @@ function MetaAdsDetailed() {
 
               <Link
                 href="/contact"
+                  aria-label="Contact Zentrix Digital Marketing for pricing"
                 className="block text-center px-6 py-3 rounded-lg font-semibold text-white
                   bg-gradient-to-r from-[#F028C2] to-[#2D96EB]
                   hover:scale-105 transition">
@@ -679,6 +935,7 @@ function GoogleAdsDetailed() {
 
               <Link
                 href="/contact"
+                  aria-label="Contact Zentrix Digital Marketing for pricing"
                 className="block text-center px-6 py-3 rounded-lg font-semibold text-white
                   bg-gradient-to-r from-[#F028C2] to-[#2D96EB]
                   hover:scale-105 transition"
@@ -706,6 +963,7 @@ function GoogleAdsDetailed() {
 
               <Link
                 href="/contact"
+                  aria-label="Contact Zentrix Digital Marketing for pricing"
                 className="block text-center px-6 py-3 rounded-lg font-semibold
                   bg-white text-[#F028C2]
                   hover:scale-105 transition"
@@ -733,6 +991,7 @@ function GoogleAdsDetailed() {
 
               <Link
                 href="/contact"
+                  aria-label="Contact Zentrix Digital Marketing for pricing"
                 className="block text-center px-6 py-3 rounded-lg font-semibold text-white
                   bg-gradient-to-r from-[#F028C2] to-[#2D96EB]
                   hover:scale-105 transition"
@@ -779,6 +1038,6 @@ function GoogleAdsDetailed() {
 
       </div>
     </section>
+    
   );
 }
-
