@@ -3,6 +3,8 @@ import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
 export const metadata: Metadata = {
+  
+
   title: "Zentrix Tech | Digital Marketing, SEO & Web Development Agency",
   description: "Zentrix Tech helps businesses grow with SEO, Google Ads, Meta Ads, Branding, and high-converting websites. Boost traffic, leads, and revenue today!",
   keywords: [
@@ -14,6 +16,11 @@ export const metadata: Metadata = {
     "Branding Services",
     "Website Design Company"
   ],
+  icons: {
+    icon: '/images/so.png', // Path to your logo
+    shortcut: '/images/so.png',
+    apple: '/images/so.png',
+  },
   alternates: {
     canonical: "https://www.zentrix-tech.com",
   },
