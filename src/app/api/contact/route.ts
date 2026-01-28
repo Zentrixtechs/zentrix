@@ -22,7 +22,7 @@ export async function POST(req: Request) {
       values: [[
         body.name,
         body.email,
-        body.mobile,
+        body.phone,
         body.website,
         body.service,
         body.message,
